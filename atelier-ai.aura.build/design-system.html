@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ATELIER AI - Design System & Pattern Library</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="assets/cfa83a21b5a6b1d8_css2.css" rel="stylesheet"/>
+  
+  <!-- Tailwind & Lucide Libraries -->
+  <script src="assets/176e894661aa9cdc_3.4.17"></script>
+  <script src="assets/0c0f06912fe3ea9a_lucide.min.js"></script>
+  
+  <!-- Global Styles from index.html -->
+  <style>
+    :root {
+      --paper: #f5f0e9;
+      --ink: #171411;
+      --muted: #7d7267;
+      --taupe: #a67b4f;
+      --panel: #eee5da;
+    }
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.82), transparent 30%),
+        radial-gradient(circle at 82% 10%, rgba(221, 211, 198, 0.34), transparent 34%),
+        var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    .font-logo {
+      font-family: "Cormorant Garamond", serif;
+    }
+    .font-display {
+      font-family: "Newsreader", serif;
+    }
+    .premium-panel {
+      border: 1px solid #d8c9b8;
+      background: #eee5da;
+      box-shadow:
+        0 24px 64px rgba(42, 31, 22, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    }
+    .material-dot:nth-child(1) {
+      background: radial-gradient(circle at 35% 25%, #e6dfd5, #bfb5aa);
+    }
+    .material-dot:nth-child(2) {
+      background: linear-gradient(90deg, #786653, #b39a82, #705844);
+    }
+    .material-dot:nth-child(3) {
+      background: radial-gradient(circle at 30% 20%, #333638, #111314);
+    }
+    .material-dot:nth-child(4) {
+      background: radial-gradient(circle at 40% 20%, #d8ceb9, #a9967f);
+    }
+    .material-dot:nth-child(5) {
+      background: linear-gradient(120deg, #6d452d, #b57b4d, #553722);
+    }
+    .material-dot:nth-child(6) {
+      background: radial-gradient(circle at 35% 25%, #e1dcd5, #bdb5ac);
+    }
+    .z-35 {
+      z-index: 35;
+    }
+    .z-55 {
+      z-index: 55;
+    }
+    @media (max-width: 1023px) {
+      .hero-side {
+        min-height: auto !important;
+      }
+      .hero-image-frame {
+        height: 640px !important;
+        border-radius: 1.35rem !important;
+      }
+      .hero-visual-bleed {
+        margin-right: 0 !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .hero-image-frame {
+        height: 560px !important;
+      }
+    }
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition-property: opacity, transform;
+      transition-duration: 1.2s;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-on-scroll.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+    
+    /* Document/showcase specific styles */
+    .docs-section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      border-bottom: 1px solid #d8cdc1;
+    }
+    .docs-section-title {
+      font-family: "Newsreader", serif;
+      font-size: 2.65rem;
+      font-weight: normal;
+      letter-spacing: -0.04em;
+      color: #171411;
+      margin-bottom: 1.5rem;
+    }
+    .docs-section-desc {
+      font-family: "Manrope", sans-serif;
+      font-size: 1rem;
+      color: #7d7267;
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+    .docs-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid #d6c5b2;
+      background: #f7efe6;
+      color: #9a744d;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+
+  <!-- =========================================================
+    Top Horizontal Nav with Anchor Links
+    ========================================================== -->
+  <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#f5f0e9]/80 border-b border-[#dfd4c8] shadow-sm">
+    <nav class="mx-auto flex max-w-[1510px] items-center justify-between gap-6 px-6 py-4 sm:px-8 lg:px-12 xl:px-14">
+      <a href="#hero" class="font-logo shrink-0 text-[1.5rem] font-medium tracking-[0.20em] text-[#171411]">
+        ATELIER AI <span class="text-[0.75rem] font-bold tracking-normal text-[#9a744d] uppercase px-2 py-0.5 rounded border border-[#d1c4b7] bg-[#f1ebe3] ml-2">Showcase</span>
+      </a>
+      <div class="hidden items-center gap-8 text-[14px] font-bold tracking-[-0.02em] text-[#2c2722] lg:flex">
+        <a class="transition hover:text-[#98704a]" href="#hero">Hero Clone</a>
+        <a class="transition hover:text-[#98704a]" href="#typography">Typography</a>
+        <a class="transition hover:text-[#98704a]" href="#colors">Colors & Surfaces</a>
+        <a class="transition hover:text-[#98704a]" href="#components">UI Components</a>
+        <a class="transition hover:text-[#98704a]" href="#layout">Layout & Spacing</a>
+        <a class="transition hover:text-[#98704a]" href="#motion">Motion</a>
+        <a class="transition hover:text-[#98704a]" href="#icons">Icons</a>
+      </div>
+      <div>
+        <a class="inline-flex h-10 items-center justify-center rounded-[9px] bg-[#171614] px-5 text-[13px] font-bold text-white shadow-[0_10px_20px_rgba(25,21,18,0.12)] transition hover:bg-[#29231e]" href="index.html">
+          Back to Website
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================================================
+      Section 0: Hero (Direct Clone, text adapted)
+      ========================================================== -->
+    <section id="hero" class="pb-16 pt-8 lg:pb-20 border-b border-[#d8cdc1]">
+      <div class="mx-auto max-w-[1510px] pl-6 sm:pl-8 lg:pl-12 xl:pl-14">
+        <div class="grid items-stretch gap-14 lg:grid-cols-[0.76fr_1.24fr] xl:gap-20">
+          <!-- Hero / Left Content -->
+          <div class="hero-side flex min-h-[735px] flex-col justify-center pr-6 sm:pr-8 lg:pr-0 xl:min-h-[760px]">
+            <div class="max-w-[700px] reveal-on-scroll delay-300 animate-in">
+              <!-- Hero Headline -->
+              <h1 class="font-display max-w-[780px] text-[4.2rem] font-normal leading-[0.9] tracking-[-0.078em] text-[#151310] sm:text-[5.25rem] md:text-[5.95rem] lg:text-[5rem] xl:text-[5.9rem] 2xl:text-[6.25rem] reveal-on-scroll animate-in">
+                <span class="whitespace-nowrap">See the system</span>
+                <br/>
+                before you
+                <br/>
+                build with it.
+              </h1>
+              <!-- Decorative Rule -->
+              <div class="mt-8 h-px w-[4.1rem] bg-[#9f7851] reveal-on-scroll delay-150 animate-in"></div>
+              <!-- Hero Body Copy -->
+              <p class="mt-7 max-w-[39rem] text-[1.15rem] font-medium leading-[1.72] tracking-[-0.025em] text-[#3a332d] sm:text-[1.22rem]">
+                Explore design variables, components, grids, and motion
+                patterns that power the editorial look of
+                <span class="font-bold text-[#9a744d]">Atelier AI.</span>
+              </p>
+              <!-- Hero CTA Group -->
+              <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6 reveal-on-scroll delay-500 animate-in">
+                <a class="inline-flex h-[66px] items-center justify-center gap-4 rounded-[12px] bg-[#171614] px-8 text-[1rem] font-bold text-white shadow-[0_24px_54px_rgba(28,22,17,0.18)] transition hover:-translate-y-0.5 hover:bg-[#29231f] sm:min-w-[250px]" href="#typography">
+                  <svg aria-hidden="true" class="lucide lucide-upload h-6 w-6" data-lucide="upload" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12"></path><path d="m17 8-5-5-5 5"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path></svg>
+                  Explore Typography
+                </a>
+                <a class="inline-flex h-[66px] items-center justify-center gap-4 rounded-[12px] border border-[#d1c4b7] bg-[#f1ebe3] px-8 text-[1rem] font-bold text-[#1c1915] shadow-[0_12px_28px_rgba(88,72,58,0.055)] transition hover:-translate-y-0.5 hover:border-[#c6b49f] hover:bg-[#f8f2ea] sm:min-w-[250px]" href="#components">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#1d1a16]">
+                    <svg aria-hidden="true" class="lucide lucide-play ml-0.5 h-4 w-4" data-lucide="play" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+                  </span>
+                  View Components
+                </a>
+              </div>
+              <!-- Hero Metrics -->
+              <div class="mt-10 reveal-on-scroll delay-700 animate-in">
+                <div class="flex flex-wrap items-center gap-y-6 text-[#181511] lg:flex-nowrap">
+                  <!-- Metric 01 -->
+                  <div class="flex shrink-0 items-center gap-3.5 pr-5 xl:pr-6">
+                    <svg aria-hidden="true" class="lucide lucide-users-round h-8 w-8 shrink-0 text-[#9d7650]" data-lucide="users-round" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 21a8 8 0 0 0-16 0"></path><circle cx="10" cy="8" r="5"></circle><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path></svg>
+                    <div>
+                      <div class="whitespace-nowrap text-[0.8rem] font-semibold text-[#756b60]">
+                        Showcase Cards
+                      </div>
+                      <div class="mt-2 text-[1.02rem] font-extrabold leading-none tracking-[-0.02em]">
+                        12+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hidden h-12 w-px shrink-0 bg-[#d9cfc4] sm:block"></div>
+                  <!-- Metric 02 -->
+                  <div class="flex shrink-0 items-center gap-3.5 px-5 xl:px-6">
+                    <svg aria-hidden="true" class="lucide lucide-badge-check h-8 w-8 shrink-0 text-[#9d7650]" data-lucide="badge-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    <div>
+                      <div class="whitespace-nowrap text-[0.8rem] font-semibold text-[#756b60]">
+                        Typography Specs
+                      </div>
+                      <div class="mt-2 text-[1.02rem] font-extrabold leading-none tracking-[-0.02em]">
+                        8+ Styles
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hidden h-12 w-px shrink-0 bg-[#d9cfc4] sm:block"></div>
+                  <!-- Metric 03 -->
+                  <div class="flex shrink-0 items-center gap-3.5 pl-5 xl:pl-6">
+                    <svg aria-hidden="true" class="lucide lucide-shield-check h-8 w-8 shrink-0 text-[#9d7650]" data-lucide="shield-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    <div>
+                      <div class="whitespace-nowrap text-[0.8rem] font-semibold text-[#756b60]">
+                        Layout Patterns
+                      </div>
+                      <div class="mt-2 whitespace-nowrap text-[1.02rem] font-extrabold leading-none tracking-[-0.02em] text-[#181511]">
+                        3 Layouts
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-7 text-[0.96rem] font-medium tracking-[-0.02em] text-[#94897d]">
+                  Loved by developers, designers, and frontend engineers.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Hero / Right Visual -->
+          <div class="hero-side hero-visual-bleed relative flex min-h-[735px] items-center xl:min-h-[760px] lg:mr-[calc((1510px-100vw)/2)]">
+            <div class="hero-image-frame relative h-[735px] w-full overflow-visible rounded-tl-[1.35rem] rounded-bl-[1.35rem] rounded-tr-none rounded-br-none xl:h-[760px] reveal-on-scroll delay-500 animate-in">
+              <!-- Main Hero Image -->
+              <div class="relative h-full w-full overflow-hidden rounded-tl-[1.35rem] rounded-bl-[1.35rem] rounded-tr-none rounded-br-none border border-r-0 border-[#dfd4c8] bg-[#d7cabc] shadow-[0_34px_90px_rgba(71,56,42,0.17)] reveal-on-scroll delay-150 animate-in">
+                <video aria-label="Warm editorial living room with stone fireplace, organic textures, cream sofa, wood shelving, and soft daylight" class="h-full w-full object-cover object-center" data-aura-generated-video="true" data-aura-video-preset="loop-in-view" loop="" muted="" playsinline="" poster="assets/f0449762d31b415e_545b052a-b0c2-4ec1-aeac-c36a8f.png" preload="metadata" src="assets/6077968255d59eb4_1779500363762-9c8dfe0b-f52e-46.mp4"></video>
+                <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(246,240,231,0.10)_0%,rgba(246,240,231,0.00)_34%,rgba(24,18,14,0.04)_100%)]"></div>
+                <div class="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#211913]/26 via-[#211913]/7 to-transparent"></div>
+              </div>
+              <!-- Before Thumbnail Card -->
+              <div class="premium-panel absolute -left-[70px] top-8 z-20 w-[172px] rounded-[15px] p-1.5 sm:w-[185px] lg:-left-[58px] xl:-left-[70px] reveal-on-scroll delay-300 animate-in">
+                <div class="relative overflow-hidden rounded-[11px] border border-[#e2d5c8] bg-[#f7f1e9] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]">
+                  <img alt="Before empty room" class="h-[122px] w-full object-cover grayscale-[12%] saturate-[0.78] sm:h-[132px]" src="assets/564d091435b67339_de7c127b-e2ce-4fbc-af38-233509.png"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#1d1712]/42 via-transparent to-white/8"></div>
+                  <div class="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full border border-[#d8c9b8] bg-[#eee5da] px-3.5 py-2 text-[0.82rem] font-extrabold tracking-[-0.02em] text-[#2b241d] shadow-[0_10px_22px_rgba(42,31,22,0.16),inset_0_1px_0_rgba(255,255,255,0.68)]">
+                    <span class="h-2 w-2 rounded-full bg-[#f8f3ec] shadow-[inset_0_0_0_1px_rgba(166,123,79,0.18)]"></span>
+                    Before
+                  </div>
+                </div>
+              </div>
+              <!-- Dotted Arrow -->
+              <svg aria-hidden="true" class="pointer-events-none absolute left-[95px] top-[155px] z-20 hidden h-32 w-44 text-white/95 drop-shadow-[0_3px_10px_rgba(0,0,0,0.20)] sm:block lg:left-[105px] lg:top-[160px]" fill="none" viewbox="0 0 180 130">
+                <path d="M8 9C72 18 126 48 151 102" stroke="currentColor" stroke-dasharray="5 7" stroke-linecap="round" stroke-width="2"></path>
+                <path d="M137 94L153 105L158 86" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <!-- Explore Styles Panel -->
+              <aside class="premium-panel absolute right-6 top-[18.5%] z-20 w-[238px] rounded-[1.25rem] p-3.5 sm:right-7 sm:w-[246px] xl:right-8 reveal-on-scroll delay-500 animate-in">
+                <div class="mb-3.5 flex items-center justify-between">
+                  <h2 class="text-[0.9rem] font-extrabold tracking-[-0.025em] text-[#1c1814]">
+                    Explore Styles
+                  </h2>
+                  <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[#d6c5b2] bg-[#f7efe6] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]">
+                    <svg aria-hidden="true" class="lucide lucide-sparkles h-3.5 w-3.5 text-[#9d7650]" data-lucide="sparkles" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                  </span>
+                </div>
+                <div class="space-y-2.5">
+                  <!-- Selected Style -->
+                  <button class="group flex w-full items-center gap-2.5 rounded-[10px] border border-[#ad8356] bg-[#f3eadf] p-2 text-left shadow-[0_12px_25px_rgba(115,82,50,0.12),inset_0_1px_0_rgba(255,255,255,0.7)]">
+                    <img alt="" class="h-[54px] w-[62px] rounded-[8px] object-cover shadow-[0_6px_14px_rgba(46,35,27,0.14)]" src="assets/71735015fee2d517_545b052a-b0c2-4ec1-aeac-c36a8f.png"/>
+                    <span class="min-w-0 flex-1 text-[0.76rem] font-extrabold tracking-[-0.025em] text-[#1c1814]">
+                      Editorial Luxe
+                    </span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#a77f53] bg-[#efe1d1] text-[#8d653e] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                      <svg aria-hidden="true" class="lucide lucide-check h-3 w-3" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </span>
+                  </button>
+                  <!-- Style Option -->
+                  <button class="group relative flex w-full items-center gap-2.5 overflow-hidden rounded-[10px] border border-[#e2d5c8] bg-[#f7f1e9] p-2 text-left shadow-[0_8px_18px_rgba(70,54,42,0.055),inset_0_1px_0_rgba(255,255,255,0.72)] transition duration-300 hover:-translate-y-0.5 hover:border-[#cdb8a3] hover:bg-[#faf4ed] hover:shadow-[0_12px_24px_rgba(70,54,42,0.09),inset_0_1px_0_rgba(255,255,255,0.78)]">
+                    <span class="pointer-events-none absolute inset-y-2 left-0 w-[2px] rounded-full bg-[#b38a5f]/0 transition group-hover:bg-[#b38a5f]/70"></span>
+                    <img alt="" class="h-[54px] w-[62px] rounded-[8px] object-cover opacity-78 saturate-[0.72] shadow-[0_5px_12px_rgba(46,35,27,0.10)] transition duration-300 group-hover:opacity-95 group-hover:saturate-[0.92]" src="assets/b9cd954472701c50_f0141fd7-e67a-4967-b6eb-a5ad3d.png"/>
+                    <span class="flex min-w-0 flex-1 items-center justify-between gap-2">
+                      <span class="text-[0.76rem] font-extrabold tracking-[-0.025em] text-[#302922]">
+                        Japandi
+                      </span>
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#c9b9a6] transition group-hover:bg-[#a77f53]"></span>
+                    </span>
+                  </button>
+                  <!-- Style Option -->
+                  <button class="group relative flex w-full items-center gap-2.5 overflow-hidden rounded-[10px] border border-[#e2d5c8] bg-[#f7f1e9] p-2 text-left opacity-95 shadow-[0_8px_18px_rgba(70,54,42,0.045),inset_0_1px_0_rgba(255,255,255,0.72)] transition duration-300 hover:-translate-y-0.5 hover:border-[#cdb8a3] hover:bg-[#faf4ed] hover:opacity-100 hover:shadow-[0_12px_24px_rgba(70,54,42,0.09),inset_0_1px_0_rgba(255,255,255,0.78)]">
+                    <span class="pointer-events-none absolute inset-y-2 left-0 w-[2px] rounded-full bg-[#b38a5f]/0 transition group-hover:bg-[#b38a5f]/70"></span>
+                    <img alt="" class="h-[54px] w-[62px] rounded-[8px] object-cover opacity-68 saturate-[0.68] shadow-[0_5px_12px_rgba(46,35,27,0.10)] transition duration-300 group-hover:opacity-92 group-hover:saturate-[0.9]" src="assets/f82a7de211887660_aaa4a07b-8f7b-407d-83bb-124126.png"/>
+                    <span class="flex min-w-0 flex-1 items-center justify-between gap-2">
+                      <span class="text-[0.76rem] font-extrabold tracking-[-0.025em] text-[#4b4036]">
+                        Modern Organic
+                      </span>
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#c9b9a6] transition group-hover:bg-[#a77f53]"></span>
+                    </span>
+                  </button>
+                </div>
+                <a class="mt-4 flex items-center justify-between rounded-[9px] px-1.5 py-1 text-[0.74rem] font-bold tracking-[-0.02em] text-[#75695e] transition hover:bg-[#f7f1e9] hover:text-[#1c1814]" href="#">
+                  View all styles
+                  <svg aria-hidden="true" class="lucide lucide-chevron-right h-4 w-4" data-lucide="chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"></path></svg>
+                </a>
+              </aside>
+              <!-- Materials Palette Overlay -->
+              <div class="premium-panel absolute bottom-5 left-5 z-20 w-[min(74%,36rem)] rounded-[1.25rem] px-4 py-3.5 sm:px-5 reveal-on-scroll delay-700 animate-in">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div class="flex items-center gap-2.5 sm:gap-3">
+                    <span class="material-dot h-[50px] w-[50px] rounded-full border border-white/60 shadow-[0_5px_12px_rgba(46,35,27,0.10),inset_0_0_0_1px_rgba(80,65,50,0.08)]"></span>
+                    <span class="material-dot h-[50px] w-[50px] rounded-full border border-white/60 shadow-[0_5px_12px_rgba(46,35,27,0.10),inset_0_0_0_1px_rgba(80,65,50,0.08)]"></span>
+                    <span class="material-dot h-[50px] w-[50px] rounded-full border border-white/45 shadow-[0_5px_12px_rgba(46,35,27,0.10),inset_0_0_0_1px_rgba(255,255,255,0.06)]"></span>
+                    <span class="material-dot h-[50px] w-[50px] rounded-full border border-white/60 shadow-[0_5px_12px_rgba(46,35,27,0.10),inset_0_0_0_1px_rgba(80,65,50,0.08)]"></span>
+                    <span class="material-dot hidden h-[50px] w-[50px] rounded-full border border-white/45 shadow-[0_5px_12px_rgba(46,35,27,0.10),inset_0_0_0_1px_rgba(80,65,50,0.08)] sm:inline-block"></span>
+                    <span class="material-dot hidden h-[50px] w-[50px] rounded-full border border-white/60 shadow-[0_5px_12px_rgba(46,35,27,0.10),inset_0_0_0_1px_rgba(80,65,50,0.08)] sm:inline-block"></span>
+                  </div>
+                  <div class="hidden h-11 w-px bg-[#cec0b1] sm:block"></div>
+                  <div class="flex min-w-[132px] items-center justify-between gap-3">
+                    <div>
+                      <div class="text-[0.76rem] font-extrabold tracking-[-0.02em] text-[#1d1915]">
+                        AI Curated
+                      </div>
+                      <div class="mt-1 text-[0.72rem] font-semibold tracking-[-0.02em] text-[#74695e]">
+                        Materials Palette
+                      </div>
+                    </div>
+                    <span class="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[#d6c5b2] bg-[#f7efe6] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]">
+                      <svg aria-hidden="true" class="lucide lucide-sparkles h-3.5 w-3.5 text-[#9d7650]" data-lucide="sparkles" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Section 1: Typography Showcase
+      ========================================================== -->
+    <section id="typography" class="docs-section mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14">
+      <span class="docs-badge">01. Typography Scale</span>
+      <h2 class="docs-section-title">Typography & Hierarchy</h2>
+      <p class="docs-section-desc">
+        Atelier AI uses a sophisticated combination of serif and sans-serif typography. Serif displays (<code>Newsreader</code> and <code>Cormorant Garamond</code>) establish a premium editorial rhythm, while sans-serif text (<code>Manrope</code>) handles structured metadata, descriptions, and buttons.
+      </p>
+      
+      <div class="premium-panel rounded-[1.35rem] bg-[#eee5da] p-6 sm:p-8 shadow-[0_28px_76px_rgba(49,37,28,0.13),inset_0_1px_0_rgba(255,255,255,0.68)]">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[#d8cdc1] text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d]">
+                <th class="py-4 px-4">Style Name</th>
+                <th class="py-4 px-4 w-2/3">Live Preview</th>
+                <th class="py-4 px-4 text-right">Size / Line-Height</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#d8cdc1]">
+              <!-- Heading 1 -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Heading 1</td>
+                <td class="py-8 px-4">
+                  <h1 class="font-display text-[4.2rem] font-normal leading-[0.9] tracking-[-0.078em] text-[#151310] sm:text-[5.25rem] md:text-[5.95rem] lg:text-[5rem] xl:text-[5.9rem]">
+                    See the room
+                  </h1>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">94px / 85px</td>
+              </tr>
+              <!-- Heading 2 -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Heading 2</td>
+                <td class="py-8 px-4">
+                  <h2 class="font-display text-[3.75rem] font-normal leading-[0.98] tracking-[-0.055em] text-[#151310] sm:text-[4.75rem] md:text-[5.35rem] lg:text-[4.9rem] xl:text-[5.55rem]">
+                    Beautiful spaces
+                  </h2>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">89px / 87px</td>
+              </tr>
+              <!-- Heading 3 -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Heading 3</td>
+                <td class="py-8 px-4">
+                  <h3 class="font-display text-[2.15rem] font-normal leading-none tracking-[-0.055em] text-[#171411]">
+                    Editorial Luxe
+                  </h3>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">34px / 34px</td>
+              </tr>
+              <!-- Heading 4 -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Heading 4</td>
+                <td class="py-8 px-4">
+                  <h3 class="font-display text-[1.78rem] font-normal leading-none tracking-[-0.045em] text-[#171411]">
+                    Curated Materials
+                  </h3>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">29px / 29px</td>
+              </tr>
+              <!-- Paragraph (larger) -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Paragraph (Larger)</td>
+                <td class="py-8 px-4">
+                  <p class="max-w-[39rem] text-[1.15rem] font-medium leading-[1.72] tracking-[-0.025em] text-[#3a332d] sm:text-[1.22rem]">
+                    Upload your room, explore multiple styles, and generate concepts.
+                  </p>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">20px / 34px</td>
+              </tr>
+              <!-- Paragraph -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Paragraph (Standard)</td>
+                <td class="py-8 px-4">
+                  <p class="max-w-[39rem] text-[1rem] font-medium leading-[1.75] tracking-[-0.025em] text-[#3a332d] sm:text-[1.06rem]">
+                    Atelier AI transforms your space in four simple steps—turning inspiration into polished designs.
+                  </p>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">17px / 30px</td>
+              </tr>
+              <!-- Bold L -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Bold L</td>
+                <td class="py-8 px-4">
+                  <span class="text-[1rem] font-bold text-[#171411]">
+                    Upload Your Room
+                  </span>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">16px / 24px</td>
+              </tr>
+              <!-- Bold M -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Bold M</td>
+                <td class="py-8 px-4">
+                  <span class="text-[0.95rem] font-extrabold tracking-[-0.025em] text-[#1c1814]">
+                    Choose a Style Direction
+                  </span>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">15px / 22px</td>
+              </tr>
+              <!-- Bold S -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Bold S</td>
+                <td class="py-8 px-4">
+                  <span class="text-[0.82rem] font-extrabold tracking-[-0.02em] text-[#2b241d]">
+                    Before
+                  </span>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">13px / 20px</td>
+              </tr>
+              <!-- Regular L -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Regular L</td>
+                <td class="py-8 px-4">
+                  <span class="text-[15px] font-semibold text-[#2c2722]">
+                    How It Works
+                  </span>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">15px / 22px</td>
+              </tr>
+              <!-- Regular M -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Regular M</td>
+                <td class="py-8 px-4">
+                  <span class="text-[0.8rem] font-semibold text-[#756b60]">
+                    Rooms Designed
+                  </span>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">13px / 18px</td>
+              </tr>
+              <!-- Regular S -->
+              <tr>
+                <td class="py-8 px-4 font-extrabold text-[0.88rem] text-[#756b60]">Regular S</td>
+                <td class="py-8 px-4">
+                  <span class="text-[0.72rem] font-semibold tracking-[-0.02em] text-[#74695e]">
+                    Materials Palette
+                  </span>
+                </td>
+                <td class="py-8 px-4 text-right font-extrabold text-[0.84rem] text-[#8c8176]">12px / 16px</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Section 2: Colors & Surfaces Showcase
+      ========================================================== -->
+    <section id="colors" class="docs-section mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14">
+      <span class="docs-badge">02. Design Tokens</span>
+      <h2 class="docs-section-title">Colors & Surfaces</h2>
+      <p class="docs-section-desc">
+        The color palette uses earthy neutral tones to create a high-end editorial atmosphere. CSS custom properties represent core colors, which are complemented by precise radial and linear gradients to define materials and backgrounds.
+      </p>
+      
+      <div class="grid gap-8 md:grid-cols-2">
+        <!-- Brand Color Variables -->
+        <div class="premium-panel rounded-[1.35rem] p-6 shadow-md">
+          <h3 class="font-display text-[1.78rem] font-normal mb-5 text-[#171411]">Color Swatches</h3>
+          <div class="space-y-4">
+            <!-- Paper -->
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 rounded-xl border border-[#d8c9b8] bg-[#f5f0e9]"></div>
+              <div>
+                <div class="text-[0.95rem] font-extrabold text-[#1c1814]">Paper (Page Background)</div>
+                <div class="text-[0.82rem] font-semibold text-[#756b60]">--paper: #f5f0e9</div>
+              </div>
+            </div>
+            <!-- Ink -->
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 rounded-xl border border-[#d8c9b8] bg-[#171411]"></div>
+              <div>
+                <div class="text-[0.95rem] font-extrabold text-[#1c1814]">Ink (Primary Text)</div>
+                <div class="text-[0.82rem] font-semibold text-[#756b60]">--ink: #171411</div>
+              </div>
+            </div>
+            <!-- Muted -->
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 rounded-xl border border-[#d8c9b8] bg-[#7d7267]"></div>
+              <div>
+                <div class="text-[0.95rem] font-extrabold text-[#1c1814]">Muted (Secondary Text)</div>
+                <div class="text-[0.82rem] font-semibold text-[#756b60]">--muted: #7d7267</div>
+              </div>
+            </div>
+            <!-- Taupe -->
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 rounded-xl border border-[#d8c9b8] bg-[#a67b4f]"></div>
+              <div>
+                <div class="text-[0.95rem] font-extrabold text-[#1c1814]">Taupe (Accent Color)</div>
+                <div class="text-[0.82rem] font-semibold text-[#756b60]">--taupe: #a67b4f</div>
+              </div>
+            </div>
+            <!-- Panel -->
+            <div class="flex items-center gap-4">
+              <div class="h-14 w-14 rounded-xl border border-[#d8c9b8] bg-[#eee5da]"></div>
+              <div>
+                <div class="text-[0.95rem] font-extrabold text-[#1c1814]">Panel Background</div>
+                <div class="text-[0.82rem] font-semibold text-[#756b60]">--panel: #eee5da</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Surfaces & Gradients -->
+        <div class="premium-panel rounded-[1.35rem] p-6 shadow-md">
+          <h3 class="font-display text-[1.78rem] font-normal mb-5 text-[#171411]">Surfaces & Gradients</h3>
+          <div class="space-y-6">
+            <!-- Premium Panel Spec -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-2">Premium Panel Style</div>
+              <div class="p-4 rounded-xl premium-panel text-center text-[0.86rem] font-semibold">
+                This card is styled with the <code>.premium-panel</code> design system class.
+              </div>
+            </div>
+            
+            <!-- Material Dots -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-3">AI Curated Materials Dots</div>
+              <div class="flex items-center gap-3">
+                <span class="material-dot h-10 w-10 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]" title="Warm Limestone"></span>
+                <span class="material-dot h-10 w-10 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]" title="Oak Wood"></span>
+                <span class="material-dot h-10 w-10 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]" title="Charcoal Slates"></span>
+                <span class="material-dot h-10 w-10 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]" title="Polished Brass"></span>
+                <span class="material-dot h-10 w-10 rounded-full border border-white/45 shadow-[0_4px_10px_rgba(46,35,27,0.10)]" title="Terracotta Slurry"></span>
+                <span class="material-dot h-10 w-10 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]" title="Travertine Velvet"></span>
+              </div>
+            </div>
+
+            <!-- Overlays -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-2">Cinematic Overlay Gradients</div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="h-16 rounded-xl relative overflow-hidden border border-[#d8c9b8] bg-[linear-gradient(90deg,rgba(18,13,9,0.72)_0%,rgba(18,13,9,0.38)_42%,rgba(18,13,9,0.52)_100%)]">
+                  <div class="absolute inset-0 flex items-center justify-center text-[0.74rem] font-bold text-white uppercase tracking-wider bg-black/10">Cinematic Dark</div>
+                </div>
+                <div class="h-16 rounded-xl relative overflow-hidden border border-[#dfd4c8] bg-[linear-gradient(90deg,rgba(246,240,231,0.10)_0%,rgba(246,240,231,0.00)_34%,rgba(24,18,14,0.04)_100%)]">
+                  <div class="absolute inset-0 flex items-center justify-center text-[0.74rem] font-bold text-[#171411] uppercase tracking-wider bg-white/10">Warm Bright Overlay</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Section 3: UI Components Showcase
+      ========================================================== -->
+    <section id="components" class="docs-section mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14">
+      <span class="docs-badge">03. UI Components</span>
+      <h2 class="docs-section-title">UI Components Gallery</h2>
+      <p class="docs-section-desc">
+        Interactive control elements and cards featured throughout the application. All custom shapes, hover states, transitions, shadows, and spacing are cloned exactly from the live landing page.
+      </p>
+      
+      <div class="space-y-12">
+        <!-- Buttons & Form Elements -->
+        <div class="premium-panel rounded-[1.35rem] p-6 sm:p-8 shadow-md">
+          <h3 class="font-display text-[1.78rem] font-normal mb-8 text-[#171411]">Action Buttons & Form Controls</h3>
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Primary Button -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">Dark Primary Button</div>
+              <div class="space-y-4">
+                <a class="inline-flex h-[66px] w-full items-center justify-center gap-4 rounded-[12px] bg-[#171614] px-8 text-[1rem] font-bold text-white shadow-[0_24px_54px_rgba(28,22,17,0.18)] transition hover:-translate-y-0.5 hover:bg-[#29231f]" href="#">
+                  <i data-lucide="upload" class="h-6 w-6"></i>
+                  Upload Your Room
+                </a>
+                <div class="text-[0.74rem] font-semibold text-[#756b60] text-center">Interactive (Hover to lift)</div>
+              </div>
+            </div>
+
+            <!-- Secondary Button -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">Light Secondary Button</div>
+              <div class="space-y-4">
+                <a class="inline-flex h-[66px] w-full items-center justify-center gap-4 rounded-[12px] border border-[#d1c4b7] bg-[#f1ebe3] px-8 text-[1rem] font-bold text-[#1c1915] shadow-[0_12px_28px_rgba(88,72,58,0.055)] transition hover:-translate-y-0.5 hover:border-[#c6b49f] hover:bg-[#f8f2ea]" href="#">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#1d1a16]">
+                    <i data-lucide="play" class="ml-0.5 h-4 w-4"></i>
+                  </span>
+                  See How It Works
+                </a>
+                <div class="text-[0.74rem] font-semibold text-[#756b60] text-center">Interactive (Hover to border highlight)</div>
+              </div>
+            </div>
+
+            <!-- Interactive Text Link -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">Action Text Link</div>
+              <div class="space-y-4 py-3 flex flex-col items-center">
+                <a class="inline-flex items-center gap-3 text-[0.98rem] font-extrabold tracking-[-0.02em] text-[#9a744d] transition hover:text-[#171411]" href="#">
+                  View all styles
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+                <div class="text-[0.74rem] font-semibold text-[#756b60] text-center mt-6">Interactive (Hover to darken text color)</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border-t border-[#d8cdc1] my-8"></div>
+          
+          <div class="grid gap-8 md:grid-cols-2">
+            <!-- Style Selectors -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">Style Card Options</div>
+              <div class="space-y-3 max-w-[320px]">
+                <!-- Selected -->
+                <div>
+                  <div class="text-[0.72rem] font-bold uppercase text-[#756b60] mb-1.5">Selected State</div>
+                  <button class="group flex w-full items-center gap-2.5 rounded-[10px] border border-[#ad8356] bg-[#f3eadf] p-2 text-left shadow-[0_12px_25px_rgba(115,82,50,0.12),inset_0_1px_0_rgba(255,255,255,0.7)]">
+                    <img alt="" class="h-[54px] w-[62px] rounded-[8px] object-cover shadow-[0_6px_14px_rgba(46,35,27,0.14)]" src="assets/71735015fee2d517_545b052a-b0c2-4ec1-aeac-c36a8f.png"/>
+                    <span class="min-w-0 flex-1 text-[0.76rem] font-extrabold tracking-[-0.025em] text-[#1c1814]">
+                      Editorial Luxe
+                    </span>
+                    <span class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#a77f53] bg-[#efe1d1] text-[#8d653e] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                      <i data-lucide="check" class="h-3 w-3"></i>
+                    </span>
+                  </button>
+                </div>
+                <!-- Unselected -->
+                <div>
+                  <div class="text-[0.72rem] font-bold uppercase text-[#756b60] mb-1.5">Unselected State (Hoverable)</div>
+                  <button class="group relative flex w-full items-center gap-2.5 overflow-hidden rounded-[10px] border border-[#e2d5c8] bg-[#f7f1e9] p-2 text-left shadow-[0_8px_18px_rgba(70,54,42,0.055),inset_0_1px_0_rgba(255,255,255,0.72)] transition duration-300 hover:-translate-y-0.5 hover:border-[#cdb8a3] hover:bg-[#faf4ed] hover:shadow-[0_12px_24px_rgba(70,54,42,0.09),inset_0_1px_0_rgba(255,255,255,0.78)]">
+                    <span class="pointer-events-none absolute inset-y-2 left-0 w-[2px] rounded-full bg-[#b38a5f]/0 transition group-hover:bg-[#b38a5f]/70"></span>
+                    <img alt="" class="h-[54px] w-[62px] rounded-[8px] object-cover opacity-78 saturate-[0.72] shadow-[0_5px_12px_rgba(46,35,27,0.10)] transition duration-300 group-hover:opacity-95 group-hover:saturate-[0.92]" src="assets/b9cd954472701c50_f0141fd7-e67a-4967-b6eb-a5ad3d.png"/>
+                    <span class="flex min-w-0 flex-1 items-center justify-between gap-2">
+                      <span class="text-[0.76rem] font-extrabold tracking-[-0.025em] text-[#302922]">
+                        Japandi
+                      </span>
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#c9b9a6] transition group-hover:bg-[#a77f53]"></span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Input Form -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">Form Input Container</div>
+              <div class="space-y-4 max-w-[380px]">
+                <form class="premium-panel flex overflow-hidden rounded-[0.95rem] bg-[#eee5da] p-1.5 shadow-[0_18px_46px_rgba(49,37,28,0.10),inset_0_1px_0_rgba(255,255,255,0.68)]">
+                  <input class="min-w-0 flex-1 bg-transparent px-3 text-[0.86rem] font-semibold text-[#171411] placeholder:text-[#9b8f82] focus:outline-none" placeholder="Email address" type="email"/>
+                  <button class="inline-flex h-10 shrink-0 items-center justify-center rounded-[0.7rem] bg-[#171614] px-5 text-[0.82rem] font-extrabold tracking-[-0.02em] text-white shadow-[0_14px_30px_rgba(25,21,18,0.16)] transition hover:bg-[#29231f]" type="submit">
+                    Join
+                  </button>
+                </form>
+                <div class="text-[0.74rem] font-semibold text-[#756b60] text-center">Interactive input (focuses cleanly without default borders)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Timeline Steps & Pricing Cards -->
+        <div class="premium-panel rounded-[1.35rem] p-6 sm:p-8 shadow-md">
+          <h3 class="font-display text-[1.78rem] font-normal mb-8 text-[#171411]">Timeline Step & Pricing Card Layouts</h3>
+          <div class="grid gap-8 lg:grid-cols-[0.4fr_0.6fr]">
+            <!-- Timeline Item -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-6">Timeline Step Card (Default)</div>
+              <div class="max-w-[320px]">
+                <div class="flex items-start gap-4">
+                  <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#b8956d] bg-[#f7efe6] text-[0.78rem] font-extrabold text-[#9a744d] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]">
+                    1
+                  </span>
+                  <div>
+                    <h3 class="text-[0.95rem] font-extrabold tracking-[-0.025em] text-[#1c1814]">
+                      Upload Your Room
+                    </h3>
+                    <p class="mt-3 text-[0.82rem] font-semibold leading-[1.55] tracking-[-0.02em] text-[#756b60]">
+                      Upload a photo of your space. Good lighting helps our AI capture every detail.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Pricing Card -->
+            <div>
+              <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-6">Pricing Plan Card Style</div>
+              <article class="premium-panel flex max-w-[340px] flex-col rounded-[1.35rem] bg-[#eee5da] p-7 shadow-[0_28px_76px_rgba(49,37,28,0.13),inset_0_1px_0_rgba(255,255,255,0.68)]">
+                <h3 class="font-display text-[2.15rem] font-normal leading-none tracking-[-0.055em] text-[#171411]">
+                  Home Plan
+                </h3>
+                <div class="mt-5 overflow-hidden rounded-[1rem] border border-[#d8c9b8] bg-[#d7cabc] shadow-[0_16px_36px_rgba(49,37,28,0.12)]">
+                  <img alt="Home plan interior preview" class="h-[120px] w-full object-cover object-center" src="assets/b9cd954472701c50_f0141fd7-e67a-4967-b6eb-a5ad3d.png"/>
+                  <div class="flex items-center justify-center gap-2 bg-[#eee5da] px-3 py-2.5">
+                    <span class="material-dot h-6 w-6 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]"></span>
+                    <span class="material-dot h-6 w-6 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]"></span>
+                    <span class="material-dot h-6 w-6 rounded-full border border-white/60 shadow-[0_4px_10px_rgba(46,35,27,0.10)]"></span>
+                  </div>
+                </div>
+                <p class="mt-5 text-[0.84rem] font-semibold leading-[1.5] text-[#756b60]">
+                  Perfect for personal projects and single-room transformations.
+                </p>
+                <div class="mt-4 flex items-end gap-1">
+                  <span class="font-display text-[2.3rem] font-normal leading-none tracking-[-0.055em] text-[#171411]">
+                    $19
+                  </span>
+                  <span class="mb-0.5 text-[0.82rem] font-extrabold text-[#171411]">/mo</span>
+                </div>
+                <div class="my-5 h-px w-full bg-[#d8cdc1]"></div>
+                <a class="inline-flex w-full items-center justify-center rounded-[0.8rem] border border-[#bfa994] bg-[#f7efe6] px-4 py-3.5 text-[0.84rem] font-extrabold tracking-[-0.02em] text-[#171411] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] transition hover:border-[#9d7650] hover:bg-white" href="#">
+                  Start with Home
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Section 4: Layout & Spacing Showcase
+      ========================================================== -->
+    <section id="layout" class="docs-section mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14">
+      <span class="docs-badge">04. Layout & Spacing</span>
+      <h2 class="docs-section-title">Layout & Spacing System</h2>
+      <p class="docs-section-desc">
+        Atelier AI uses a curated spacing scale and clean grids to organize editorial copy alongside rich visual assets. The page layout is built on responsive flexbox configurations and grid columns.
+      </p>
+      
+      <div class="space-y-8">
+        <!-- Hero Grid Visualizer -->
+        <div class="premium-panel rounded-[1.35rem] p-6 shadow-md">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-[0.95rem] font-extrabold text-[#1c1814]">Pattern 1: Hero Layout (Two-Column Asymmetric Grid)</h3>
+            <span class="text-[0.74rem] font-semibold text-[#9a744d]"><code>lg:grid-cols-[0.76fr_1.24fr]</code></span>
+          </div>
+          <div class="grid gap-4 lg:grid-cols-[0.76fr_1.24fr] text-center text-[0.82rem] font-semibold text-[#756b60]">
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-8 flex flex-col justify-center items-center">
+              <div>Hero Left Content Container</div>
+              <div class="text-[0.72rem] text-[#9b8f82] mt-1">Width: 38% on desktop (max-width: 700px)</div>
+            </div>
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-8 flex flex-col justify-center items-center h-48">
+              <div>Hero Right Visual Container</div>
+              <div class="text-[0.72rem] text-[#9b8f82] mt-1">Width: 62% on desktop (bleed margin-right calculation)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Grid Visualizer -->
+        <div class="premium-panel rounded-[1.35rem] p-6 shadow-md">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-[0.95rem] font-extrabold text-[#1c1814]">Pattern 2: Four-Column Timeline Grid</h3>
+            <span class="text-[0.74rem] font-semibold text-[#9a744d]"><code>lg:grid-cols-4 lg:gap-10</code></span>
+          </div>
+          <div class="grid gap-4 lg:grid-cols-4 text-center text-[0.82rem] font-semibold text-[#756b60]">
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-4">Step 01 Column</div>
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-4">Step 02 Column</div>
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-4">Step 03 Column</div>
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-4">Step 04 Column</div>
+          </div>
+        </div>
+
+        <!-- Pricing Grid Visualizer -->
+        <div class="premium-panel rounded-[1.35rem] p-6 shadow-md">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-[0.95rem] font-extrabold text-[#1c1814]">Pattern 3: Three-Column Pricing Plan Grid</h3>
+            <span class="text-[0.74rem] font-semibold text-[#9a744d]"><code>lg:grid-cols-3 lg:gap-6</code></span>
+          </div>
+          <div class="grid gap-4 lg:grid-cols-3 text-center text-[0.82rem] font-semibold text-[#756b60]">
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-6">Plan 1 (Home)</div>
+            <div class="border border-[#ad8356] bg-[#f3eadf] rounded-xl p-6 relative">
+              Plan 2 (Studio) - Pinned Offset
+              <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#a77f53] text-white text-[0.62rem] px-2 py-0.5 rounded-full uppercase font-bold">Popular</span>
+            </div>
+            <div class="border border-[#bfa994] bg-[#f7efe6] rounded-xl p-6">Plan 3 (Pro)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Section 5: Motion & Interaction Showcase
+      ========================================================== -->
+    <section id="motion" class="docs-section mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14">
+      <span class="docs-badge">05. Motion & Interaction</span>
+      <h2 class="docs-section-title">Motion Gallery</h2>
+      <p class="docs-section-desc">
+        Atelier AI incorporates subtle micro-interactions to emphasize depth and reactivity. The entrance animations fade and translate upwards concurrently. Try them using the preview cards below.
+      </p>
+      
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Entrance Reveal -->
+        <div class="premium-panel rounded-[1.35rem] p-6 flex flex-col justify-between shadow-md">
+          <div>
+            <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">01. Scroll Reveal</div>
+            <p class="text-[0.84rem] font-semibold text-[#756b60] mb-6">
+              Elements use the <code>.reveal-on-scroll</code> class to slide in dynamically when entering the viewport.
+            </p>
+            <!-- Demo Box -->
+            <div id="scroll-demo-target" class="reveal-on-scroll border border-[#bfa994] bg-[#f7efe6] rounded-xl p-6 text-center text-[0.88rem] font-bold text-[#1c1814] h-24 flex items-center justify-center">
+              I Slide Up & Fade In
+            </div>
+          </div>
+          <button onclick="toggleScrollReveal()" class="mt-6 inline-flex h-10 w-full items-center justify-center rounded-[8px] bg-[#171614] px-4 text-[0.82rem] font-extrabold text-white shadow-[0_4px_10px_rgba(25,21,18,0.12)] transition hover:bg-[#29231f]">
+            Replay Animation
+          </button>
+        </div>
+
+        <!-- Hover Lift -->
+        <div class="premium-panel rounded-[1.35rem] p-6 flex flex-col justify-between shadow-md">
+          <div>
+            <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">02. Hover Translate Lift</div>
+            <p class="text-[0.84rem] font-semibold text-[#756b60] mb-6">
+              CTA buttons and secondary options lift upwards by <code>-0.5rem</code> with high performance transitions.
+            </p>
+            <!-- Demo Box -->
+            <a href="#" class="block border border-[#bfa994] bg-[#f7efe6] hover:border-[#cdb8a3] hover:bg-[#faf4ed] rounded-xl p-6 text-center text-[0.88rem] font-bold text-[#1c1814] h-24 flex flex-col justify-center items-center transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(70,54,42,0.09)]">
+              Hover Over Me
+              <span class="text-[0.72rem] font-semibold text-[#756b60] mt-1"><code>hover:-translate-y-0.5</code></span>
+            </a>
+          </div>
+          <div class="mt-6 text-center text-[0.74rem] font-semibold text-[#756b60]">
+            Interactive (Hover to see lift transition)
+          </div>
+        </div>
+
+        <!-- Active Scale / Option Card selection -->
+        <div class="premium-panel rounded-[1.35rem] p-6 flex flex-col justify-between shadow-md">
+          <div>
+            <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">03. Option Card Active Selection</div>
+            <p class="text-[0.84rem] font-semibold text-[#756b60] mb-6">
+              Selecting cards triggers transition scales on internal imagery and shows active indicators.
+            </p>
+            <!-- Demo Box -->
+            <button id="card-selection-demo" onclick="toggleCardDemo()" class="group relative flex w-full items-center gap-2.5 overflow-hidden rounded-[10px] border border-[#e2d5c8] bg-[#f7f1e9] p-2 text-left shadow-[0_8px_18px_rgba(70,54,42,0.055),inset_0_1px_0_rgba(255,255,255,0.72)] transition duration-300">
+              <span id="card-demo-bar" class="pointer-events-none absolute inset-y-2 left-0 w-[2px] rounded-full bg-[#b38a5f]/0 transition"></span>
+              <img id="card-demo-img" alt="" class="h-[54px] w-[62px] rounded-[8px] object-cover opacity-78 saturate-[0.72] shadow-[0_5px_12px_rgba(46,35,27,0.10)] transition duration-300" src="assets/b9cd954472701c50_f0141fd7-e67a-4967-b6eb-a5ad3d.png"/>
+              <span class="flex min-w-0 flex-1 items-center justify-between gap-2">
+                <span id="card-demo-text" class="text-[0.76rem] font-extrabold tracking-[-0.025em] text-[#302922]">
+                  Tap Card Option
+                </span>
+                <span id="card-demo-dot" class="h-1.5 w-1.5 rounded-full bg-[#c9b9a6] transition"></span>
+              </span>
+            </button>
+          </div>
+          <button onclick="toggleCardDemo()" class="mt-6 inline-flex h-10 w-full items-center justify-center rounded-[8px] bg-[#171614] px-4 text-[0.82rem] font-extrabold text-white shadow-[0_4px_10px_rgba(25,21,18,0.12)] transition hover:bg-[#29231f]">
+            Toggle Select State
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Section 6: Icons Showcase
+      ========================================================== -->
+    <section id="icons" class="docs-section mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14">
+      <span class="docs-badge">06. Iconography</span>
+      <h2 class="docs-section-title">Icon Library</h2>
+      <p class="docs-section-desc">
+        Atelier AI uses clean 24px Lucide outline icons styled with a customized stroke width of <code>1.6px</code>. They are configured to inherit the parent's text color and scale fluidly based on sizing classes.
+      </p>
+      
+      <div class="premium-panel rounded-[1.35rem] p-6 sm:p-8 shadow-md">
+        <!-- Sizing & Colors Showcase -->
+        <div class="mb-8 grid gap-6 md:grid-cols-2">
+          <!-- Size Variants -->
+          <div class="border border-[#d8cdc1] rounded-xl p-4 bg-[#f7efe6]/50">
+            <div class="text-[0.76rem] font-extrabold uppercase tracking-wide text-[#9a744d] mb-3">Size Scaling Variants</div>
+            <div class="flex items-end gap-6">
+              <div class="text-center">
+                <div class="flex items-center justify-center h-12"><i data-lucide="sparkles" class="h-4 w-4 text-[#9d7650]"></i></div>
+                <div class="text-[0.68rem] font-bold text-[#7d7267] mt-1">h-4 w-4 (16px)</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center h-12"><i data-lucide="sparkles" class="h-6 w-6 text-[#9d7650]"></i></div>
+                <div class="text-[0.68rem] font-bold text-[#7d7267] mt-1">h-6 w-6 (24px)</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center h-12"><i data-lucide="sparkles" class="h-8 w-8 text-[#9d7650]"></i></div>
+                <div class="text-[0.68rem] font-bold text-[#7d7267] mt-1">h-8 w-8 (32px)</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center h-12"><i data-lucide="sparkles" class="h-9 w-9 text-[#9d7650]"></i></div>
+                <div class="text-[0.68rem] font-bold text-[#7d7267] mt-1">h-9 w-9 (36px)</div>
+              </div>
+            </div>
+          </div>
+          <!-- Color Variants -->
+          <div class="border border-[#d8cdc1] rounded-xl p-4 bg-[#f7efe6]/50">
+            <div class="text-[0.76rem] font-extrabold uppercase tracking-wide text-[#9a744d] mb-3">Color Inheritance Examples</div>
+            <div class="flex gap-6">
+              <div class="text-center">
+                <div class="flex items-center justify-center h-12"><i data-lucide="shield-check" class="h-8 w-8 text-[#9d7650]"></i></div>
+                <div class="text-[0.68rem] font-bold text-[#7d7267] mt-1">text-[#9d7650]</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center h-12"><i data-lucide="shield-check" class="h-8 w-8 text-[#171411]"></i></div>
+                <div class="text-[0.68rem] font-bold text-[#7d7267] mt-1">text-[#171411]</div>
+              </div>
+              <div class="text-center bg-[#171614] rounded-lg px-3 py-1 text-center">
+                <div class="flex items-center justify-center h-10"><i data-lucide="shield-check" class="h-8 w-8 text-white"></i></div>
+                <div class="text-[0.68rem] font-bold text-white/70 mt-1">text-white</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Icon Catalog Grid -->
+        <div class="text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-[#9a744d] mb-4">Complete Icon Catalog</div>
+        <div class="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="upload" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">upload</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="play" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">play</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="users-round" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">users-round</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="badge-check" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">badge-check</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="shield-check" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">shield-check</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="sparkles" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">sparkles</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="check" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">check</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="chevron-right" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">chevron-right</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="chevron-left" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">chevron-left</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="chevron-down" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">chevron-down</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="arrow-right" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">arrow-right</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="crosshair" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">crosshair</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="bookmark" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">bookmark</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="cloud-upload" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">cloud-upload</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="download" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">download</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="heart" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">heart</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="folder" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">folder</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="ellipsis" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">ellipsis</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="scan-search" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">scan-search</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="palette" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">palette</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="clipboard-check" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">clipboard-check</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="chevrons-left-right" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">chevrons-left-right</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="scan-line" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">scan-line</div>
+          </div>
+          <div class="border border-[#d8cdc1] bg-[#f7efe6]/30 rounded-xl p-3 flex flex-col items-center justify-center text-center">
+            <i data-lucide="blend" class="h-6 w-6 text-[#9d7650]"></i>
+            <div class="text-[0.68rem] font-bold text-[#7d7267] mt-2 truncate w-full">blend</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#171614] text-white py-12">
+    <div class="mx-auto max-w-[1510px] px-6 sm:px-8 lg:px-12 xl:px-14 text-center">
+      <p class="font-logo text-[1.8rem] tracking-[0.20em] text-[#eee5da] mb-4">ATELIER AI</p>
+      <p class="text-[0.82rem] font-semibold text-[#8c8176]">Living Design System Spec & Pattern Library • Version 2.0</p>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+    Interactive JavaScript
+    ========================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Initialize Lucide Icons
+      if (window.lucide) {
+        lucide.createIcons({
+          attrs: {
+            "stroke-width": 1.6
+          }
+        });
+      }
+
+      // 2. Simple scroll animation observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        if (!el.classList.contains('animate-in')) {
+          observer.observe(el);
+        }
+      });
+      
+      // Initial trigger for motion demo on page load
+      const scrollDemo = document.getElementById('scroll-demo-target');
+      if (scrollDemo) {
+        setTimeout(() => scrollDemo.classList.add('animate-in'), 300);
+      }
+    });
+  </script>
+</body>
+</html>
