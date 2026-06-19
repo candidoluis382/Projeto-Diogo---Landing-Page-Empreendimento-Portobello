@@ -394,10 +394,6 @@
         height: 560px !important;
       }
 
-      .floating-card {
-        left: -1rem !important;
-      }
-
       /* Concept Section Mobile */
       .concept-image-frame {
         height: 560px !important;
@@ -935,45 +931,45 @@
         <div class="grid items-stretch gap-14 lg:grid-cols-[0.76fr_1.24fr] xl:gap-20">
 
           <!-- Hero Left Column: Editorial Content -->
-          <div class="hero-side flex min-h-[735px] flex-col justify-center pr-6 sm:pr-8 lg:pr-0 xl:min-h-[760px]">
-            <div class="max-w-[700px]">
+          <div class="hero-side flex min-h-0 lg:min-h-[735px] xl:min-h-[760px] py-12 lg:py-0 flex-col justify-center items-center lg:items-start text-center lg:text-left pr-6 sm:pr-8 lg:pr-0">
+            <div class="max-w-[700px] flex flex-col items-center lg:items-start">
 
               <!-- Superior Badge -->
-              <div class="hero-badge docs-badge inline-flex items-center gap-2">
+              <div class="hero-badge docs-badge flex items-center justify-center lg:justify-start gap-2">
                 <span class="h-1.5 w-1.5 rounded-full bg-[#1E3040] animate-pulse"></span>
                 <span>Rod. Rio Santos, KM 434 — Mangaratiba, RJ</span>
               </div>
               <!-- Main Headline -->
-              <h1 class="hero-headline font-display max-w-[780px] text-[32px] font-normal leading-[0.98] tracking-[-0.055em] text-[#161820] sm:text-[40px] md:text-[48px] lg:text-[48px] xl:text-[56px] 2xl:text-[56px]">
+              <h1 class="hero-headline font-display max-w-[780px] text-[32px] font-normal leading-[0.98] tracking-[-0.055em] text-[#161820] sm:text-[40px] md:text-[48px] lg:text-[48px] xl:text-[56px] 2xl:text-[56px] text-center lg:text-left mx-auto lg:mx-0">
                 Onde o mar encontra o horizonte de quem de fato chegou.
               </h1>
 
               <!-- Decorative Line -->
-              <div class="decorative-line mt-8 h-px bg-gradient-to-r from-[#3B6278] via-[#3B6278]/60 to-transparent"></div>
+              <div class="decorative-line mt-8 h-px bg-gradient-to-r from-[#3B6278] via-[#3B6278]/60 to-transparent mx-auto lg:mx-0"></div>
 
               <!-- Body Paragraph -->
               <p
-                class="hero-body mt-7 max-w-[39rem] text-[16px] font-medium leading-[24px] tracking-[-0.025em] text-[#161820]">
+                class="hero-body mt-7 max-w-[39rem] text-[16px] font-medium leading-[24px] tracking-[-0.025em] text-[#161820] text-center lg:text-left mx-auto lg:mx-0">
                 O Residencial Portobello oferece o ápice da sofisticação e da privacidade em Mangaratiba. Um complexo
                 restrito a apenas 5 residências exclusivas de altíssimo luxo, com lotes de 2.695 m², 980 m² construídos
                 e hangar aeronáutico privativo.
               </p>
 
               <!-- CTA Group -->
-              <div class="hero-cta mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-                <a class="btn-primary btn-shine inline-flex h-[66px] items-center justify-center gap-4 rounded-[12px] px-8 text-[16px] font-bold text-white sm:min-w-[250px]"
+              <div class="hero-cta mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full">
+                <a class="btn-primary btn-shine inline-flex h-[66px] items-center justify-center gap-4 rounded-[12px] px-8 text-[16px] font-bold text-white sm:min-w-[250px] w-full sm:w-auto"
                   href="#contato">
                   <span class="relative z-10">Solicitar Informações</span>
                 </a>
-                <a class="btn-secondary inline-flex h-[66px] items-center justify-center gap-4 rounded-[12px] px-8 text-[16px] font-bold sm:min-w-[250px]"
+                <a class="btn-secondary inline-flex h-[66px] items-center justify-center gap-4 rounded-[12px] px-8 text-[16px] font-bold sm:min-w-[250px] w-full sm:w-auto"
                   href="#disponibilidade">
                   <span>Ver Disponibilidade</span>
                 </a>
               </div>
 
               <!-- Metrics & Subtext -->
-              <div class="hero-metrics mt-10">
-                <div class="flex flex-wrap items-center gap-y-6 text-[#161820] lg:flex-nowrap">
+              <div class="hero-metrics mt-10 w-full flex flex-col items-center lg:items-start">
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-6 text-[#161820] lg:flex-nowrap w-full">
 
                   <!-- Metric 1 -->
                   <div class="hero-metrics-item flex shrink-0 items-center gap-3.5 pr-5 xl:pr-6">
@@ -1017,7 +1013,7 @@
                   </div>
                 </div>
 
-                <p class="hero-subtext mt-7 text-[12px] font-medium tracking-[-0.02em] text-[#3B6278]">
+                <p class="hero-subtext mt-7 text-[12px] font-medium tracking-[-0.02em] text-[#3B6278] text-center lg:text-left">
                   5 residências exclusivas · Lotes 23 a 27
                 </p>
               </div>
@@ -1027,7 +1023,7 @@
 
           <!-- Hero Right Column: Image & Overlay Visuals -->
           <div
-            class="hero-side hero-visual-bleed relative flex min-h-[735px] items-center xl:min-h-[760px] lg:mr-[calc((1510px-100vw)/2)]">
+            class="hero-side hero-visual-bleed relative flex min-h-0 lg:min-h-[735px] items-center xl:min-h-[760px] lg:mr-[calc((1510px-100vw)/2)] w-full">
             <div
               class="hero-image-frame relative h-[735px] w-full overflow-visible rounded-tl-[1.35rem] rounded-bl-[1.35rem] rounded-tr-none rounded-br-none xl:h-[760px] shadow-[0_34px_90px_rgba(71,56,42,0.17)]">
 
@@ -1048,7 +1044,7 @@
 
               <!-- Floating Card overlapping the image -->
               <div
-                class="floating-card premium-panel absolute -left-[70px] top-8 z-20 w-[280px] rounded-[15px] p-2 lg:-left-[58px] xl:-left-[70px]">
+                class="floating-card premium-panel absolute left-1/2 -translate-x-1/2 -bottom-6 top-auto lg:-left-[70px] lg:top-8 lg:translate-x-0 lg:bottom-auto z-20 w-[280px] rounded-[15px] p-2">
                 <div
                   class="relative overflow-hidden rounded-[11px] border border-[#C8CDD0] bg-gradient-to-br from-[#F8F8F6] to-[#ECECE8] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] flex flex-col gap-4">
                   <div
@@ -1083,7 +1079,7 @@
         <div class="grid items-stretch gap-14 lg:grid-cols-[1.24fr_0.76fr] xl:gap-20">
 
           <!-- Concept Left Column: Gallery & Sangria à esquerda -->
-          <div class="hero-side concept-visual-bleed relative flex min-h-[735px] items-center xl:min-h-[760px] lg:ml-[calc((1510px-100vw)/2)]">
+          <div class="hero-side concept-visual-bleed relative flex min-h-0 lg:min-h-[735px] items-center xl:min-h-[760px] lg:ml-[calc((1510px-100vw)/2)] w-full">
             <div class="concept-image-frame relative h-[735px] w-full overflow-visible rounded-tr-[1.35rem] rounded-br-[1.35rem] rounded-tl-none rounded-bl-none xl:h-[760px]">
 
               <!-- Main Image Container -->
@@ -1121,28 +1117,28 @@
           </div>
 
           <!-- Concept Right Column: Editorial Content -->
-          <div class="hero-side flex min-h-[735px] flex-col justify-center pl-6 sm:pl-8 lg:pl-0 xl:min-h-[760px]">
-            <div class="max-w-[700px]">
+          <div class="hero-side flex min-h-0 lg:min-h-[735px] py-12 lg:py-0 flex-col justify-center items-center lg:items-start text-center lg:text-left pl-6 sm:pr-8 lg:pl-0 xl:min-h-[760px] w-full">
+            <div class="max-w-[700px] flex flex-col items-center lg:items-start">
 
               <!-- Superior Badge -->
-              <div class="concept-badge docs-badge inline-flex items-center gap-2">
+              <div class="concept-badge docs-badge flex items-center justify-center lg:justify-start gap-2">
                 <i data-lucide="waves" class="h-3.5 w-3.5 text-[#1E3040]"></i>
                 <span>Residencial Portobello · Mangaratiba, RJ</span>
               </div>
 
               <!-- Main Headline -->
-              <h2 class="concept-headline font-display max-w-[780px] text-[32px] font-normal leading-[0.98] tracking-[-0.055em] text-[#161820] sm:text-[40px] md:text-[48px] lg:text-[48px] xl:text-[56px] 2xl:text-[56px]">
+              <h2 class="concept-headline font-display max-w-[780px] text-[32px] font-normal leading-[0.98] tracking-[-0.055em] text-[#161820] sm:text-[40px] md:text-[48px] lg:text-[48px] xl:text-[56px] 2xl:text-[56px] text-center lg:text-left mx-auto lg:mx-0">
                 Uma vida construída nos dois lados do horizonte.
               </h2>
 
               <!-- Double Horizon Lines (motif) -->
-              <div class="concept-horizon-line mt-8 flex flex-col gap-1.5 w-[8.2rem]">
+              <div class="concept-horizon-line mt-8 flex flex-col gap-1.5 w-[8.2rem] mx-auto lg:mx-0">
                 <div class="concept-line-land h-px bg-gradient-to-r from-[#161820] via-[#3B6278]/60 to-transparent"></div>
                 <div class="concept-line-water h-px bg-gradient-to-r from-[#3B6278] via-[#1E3040]/40 to-transparent"></div>
               </div>
 
               <!-- Body Paragraph -->
-              <p class="concept-body mt-7 max-w-[39rem] text-[16px] font-medium leading-[24px] tracking-[-0.025em] text-[#161820]">
+              <p class="concept-body mt-7 max-w-[39rem] text-[16px] font-medium leading-[24px] tracking-[-0.025em] text-[#161820] text-center lg:text-left mx-auto lg:mx-0">
                 No Residencial Portobello, o mar não é paisagem — é vizinho. Cinco residências exclusivas às margens do Canal Whiskey, em Mangaratiba, onde cada lote começa na terra e termina na água. Um endereço que existe para quem já chegou aonde queria chegar.
               </p>
 
@@ -1161,50 +1157,50 @@
         <div class="grid gap-8 lg:grid-cols-12 xl:gap-16 items-start pb-12 lg:pb-16 border-b border-[#C8CDD0]/60">
           
           <!-- Column 1.1: Badge & Headline (left-aligned) -->
-          <div class="lg:col-span-7">
+          <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
             <!-- Superior Badge -->
-            <div class="exclusividade-badge docs-badge inline-flex items-center gap-2">
+            <div class="exclusividade-badge docs-badge flex items-center justify-center lg:justify-start gap-2">
               <i data-lucide="layout-grid" class="h-3.5 w-3.5 text-[#1E3040]"></i>
               <span>Arquitetura · Interior</span>
             </div>
             
             <!-- Main Headline -->
-            <h2 class="exclusividade-headline font-display max-w-[780px] text-[32px] font-normal leading-[0.98] tracking-[-0.055em] text-[#161820] sm:text-[40px] md:text-[48px] lg:text-[48px] xl:text-[56px] 2xl:text-[56px] mt-4">
+            <h2 class="exclusividade-headline font-display max-w-[780px] text-[32px] font-normal leading-[0.98] tracking-[-0.055em] text-[#161820] sm:text-[40px] md:text-[48px] lg:text-[48px] xl:text-[56px] 2xl:text-[56px] mt-4 text-center lg:text-left mx-auto lg:mx-0">
               980 m² onde cada detalhe foi pensado para impressionar quem mais importa: você.
             </h2>
           </div>
           
           <!-- Column 1.2: Body Paragraph & Metrics Grid (right-aligned) -->
-          <div class="lg:col-span-5 flex flex-col justify-between h-full pt-2 lg:pt-8">
+          <div class="lg:col-span-5 flex flex-col justify-between items-center lg:items-start text-center lg:text-left h-full pt-2 lg:pt-8">
             <!-- Body Paragraph -->
-            <p class="exclusividade-body text-[16px] font-medium leading-[24px] tracking-[-0.025em] text-[#161820] max-w-[39rem]">
+            <p class="exclusividade-body text-[16px] font-medium leading-[24px] tracking-[-0.025em] text-[#161820] max-w-[39rem] text-center lg:text-left mx-auto lg:mx-0">
               Seis suítes, salão social de 168 m², pé-direito duplo, escada flutuante em mármore, iluminação arquitetônica em cada plano. A casa foi projetada para que o espaço fale antes das palavras.
             </p>
 
             <!-- Discrete Metrics Grid -->
-            <div class="exclusividade-metrics mt-8 grid grid-cols-2 gap-x-8 gap-y-4 border-t border-[#C8CDD0]/60 pt-6">
+            <div class="exclusividade-metrics mt-8 grid grid-cols-2 gap-x-8 gap-y-4 border-t border-[#C8CDD0]/60 pt-6 w-full justify-items-center lg:justify-items-start">
               <!-- Metric 1 -->
               <div class="exclusividade-metric-item">
                 <div class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Salão</div>
                 <div class="mt-1 text-[15px] font-extrabold text-[#161820]">168,50 m²</div>
               </div>
               <!-- Metric 2 -->
-              <div class="exclusividade-metric-item">
+              <div class="exclusividade-metric-item text-center lg:text-left">
                 <div class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Varanda</div>
                 <div class="mt-1 text-[15px] font-extrabold text-[#161820]">69,29 m²</div>
               </div>
               <!-- Metric 3 -->
-              <div class="exclusividade-metric-item">
+              <div class="exclusividade-metric-item text-center lg:text-left">
                 <div class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Piscina</div>
                 <div class="mt-1 text-[15px] font-extrabold text-[#161820]">40,25 m²</div>
               </div>
               <!-- Metric 4 -->
-              <div class="exclusividade-metric-item">
+              <div class="exclusividade-metric-item text-center lg:text-left">
                 <div class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Deck</div>
                 <div class="mt-1 text-[15px] font-extrabold text-[#161820]">50,65 m²</div>
               </div>
               <!-- Metric 5 -->
-              <div class="exclusividade-metric-item">
+              <div class="exclusividade-metric-item text-center lg:text-left">
                 <div class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Garagem coberta</div>
                 <div class="mt-1 text-[15px] font-extrabold text-[#161820]">62,50 m²</div>
               </div>
@@ -1222,7 +1218,7 @@
             <!-- Ambient shadow overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-[#161820]/60 via-[#161820]/10 to-transparent z-10 pointer-events-none"></div>
             <!-- Glassmorphic Details Card -->
-            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none">
+            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none text-center lg:text-left">
               <h4 class="font-display text-[18px] font-normal leading-none text-[#161820] mb-1">Fachada Principal</h4>
               <p class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Arquitetura Externa · Garagem Coberta 62,50 m²</p>
             </div>
@@ -1233,7 +1229,7 @@
             <img src="portobello-interior-1.webp" alt="Interior do salão social no Residencial Portobello"
               class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#161820]/60 via-[#161820]/10 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none">
+            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none text-center lg:text-left">
               <h4 class="font-display text-[18px] font-normal leading-none text-[#161820] mb-1">Salão Social</h4>
               <p class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Salão 168,50 m² · Varanda 69,29 m²</p>
             </div>
@@ -1244,7 +1240,7 @@
             <img src="portobello-interior-2.webp" alt="Interior amplo com escada de mármore no Residencial Portobello"
               class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#161820]/60 via-[#161820]/10 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none">
+            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none text-center lg:text-left">
               <h4 class="font-display text-[18px] font-normal leading-none text-[#161820] mb-1">Escada Flutuante</h4>
               <p class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Pé-direito duplo · Escada de Mármore</p>
             </div>
@@ -1255,7 +1251,7 @@
             <img src="portobello-lazer-1.webp" alt="Área de lazer com piscina e deck no Residencial Portobello"
               class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#161820]/60 via-[#161820]/10 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none">
+            <div class="absolute inset-x-4 bottom-4 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none text-center lg:text-left">
               <h4 class="font-display text-[18px] font-normal leading-none text-[#161820] mb-1">Área de Lazer</h4>
               <p class="text-[11px] font-bold text-[#3B6278] uppercase tracking-wider">Piscina 40,25 m² · Deck 50,65 m²</p>
             </div>
@@ -1272,25 +1268,25 @@
         <div class="grid items-center gap-12 lg:grid-cols-[0.43fr_0.57fr] xl:gap-20">
           
           <!-- Left Column: Editorial & Selector -->
-          <div class="lazer-content-col flex flex-col justify-center">
+          <div class="lazer-content-col flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
             <!-- Badge -->
-            <div class="lazer-badge docs-badge flex items-center gap-2 w-fit">
+            <div class="lazer-badge docs-badge flex items-center justify-center lg:justify-start gap-2">
               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#3B6278]"></i>
               <span>Lazer · Bem-estar</span>
             </div>
 
             <!-- Headline -->
-            <h2 class="lazer-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-[#161820] mt-4 mb-6">
+            <h2 class="lazer-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-[#161820] mt-4 mb-6 text-center lg:text-left mx-auto lg:mx-0">
               O clube era fora.<br />Aqui, ele é seu.
             </h2>
 
             <!-- Body Copy -->
-            <p class="lazer-body text-[15px] sm:text-[16px] leading-[1.6] text-[#3B6278]/90 font-medium mb-10 max-w-xl">
+            <p class="lazer-body text-[15px] sm:text-[16px] leading-[1.6] text-[#3B6278]/90 font-medium mb-10 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
               Piscina privativa, deck de madeira nobre, hidromassagem, sauna, churrasqueira gourmet e quadra de vôlei oficial. Tudo dentro do seu lote. Sem agenda, sem fila, sem vizinho desconhecido.
             </p>
 
             <!-- Interactive Selector Tabs (Vertical list) -->
-            <div class="lazer-tabs-wrapper flex flex-col gap-4">
+            <div class="lazer-tabs-wrapper flex flex-col gap-4 w-full">
               <!-- Tab 1 -->
               <button class="lazer-tab-item active flex items-start text-left p-4 rounded-xl border border-transparent bg-transparent transition-all duration-300 group" data-lazer-index="0">
                 <span class="font-display text-lg text-[#3B6278]/60 font-semibold mr-4 group-[.active]:text-[#161820]">01</span>
@@ -1358,7 +1354,7 @@
               </div>
 
               <!-- Floating Glassmorphic Caption Card -->
-              <div class="lazer-caption-card absolute bottom-6 right-6 backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none max-w-[280px]">
+              <div class="lazer-caption-card absolute bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-6 backdrop-blur-md bg-[#F2F2F0]/85 border border-[#C8CDD0] p-4 rounded-[12px] shadow-lg z-20 pointer-events-none max-w-[280px] w-[90%] sm:w-auto text-center lg:text-left">
                 <h4 class="lazer-caption-title font-display text-[16px] font-normal leading-none text-[#161820] mb-1">
                   Piscina & Deck
                 </h4>
@@ -1407,20 +1403,20 @@
         <div class="grid w-full grid-cols-1 lg:grid-cols-[0.65fr_0.35fr] items-center">
           
           <!-- Left Content Block -->
-          <div class="aeronautica-content text-white">
+          <div class="aeronautica-content text-white flex flex-col items-center lg:items-start text-center lg:text-left w-full">
             <!-- Badge -->
-            <div class="aeronautica-badge inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-[#161820]/60 backdrop-blur-md text-[12px] font-extrabold uppercase tracking-wider text-[#C8CDD0] mb-6 select-none">
-              <i data-lucide="plane" class="w-3.5 h-3.5 text-[#C8CDD0]"></i>
+            <div class="aeronautica-badge docs-badge flex items-center justify-center lg:justify-start gap-2 mb-6 text-white border border-white/10 bg-[#161820]/60 backdrop-blur-md select-none w-fit">
+              <i data-lucide="plane" class="w-3.5 h-3.5 text-white"></i>
               <span>Infraestrutura Aeronáutica</span>
             </div>
 
             <!-- Headline -->
-            <h2 class="aeronautica-headline font-display text-4xl sm:text-5xl lg:text-[58px] leading-[1.1] font-normal tracking-tight mb-6 max-w-2xl text-white">
+            <h2 class="aeronautica-headline font-display text-4xl sm:text-5xl lg:text-[58px] leading-[1.1] font-normal tracking-tight mb-6 max-w-2xl text-white text-center lg:text-left mx-auto lg:mx-0">
               875 m² para guardar o que leva você mais longe.
             </h2>
 
             <!-- Body Copy -->
-            <p class="aeronautica-body text-[15px] sm:text-[16px] leading-[1.6] text-white/80 font-medium max-w-lg">
+            <p class="aeronautica-body text-[15px] sm:text-[16px] leading-[1.6] text-white/80 font-medium max-w-lg text-center lg:text-left mx-auto lg:mx-0">
               Para quem o tempo é o bem mais escasso, o Portobello oferece hangar aeronáutico privativo de 875 m² integrado ao lote. Decolagem e chegada a partir da sua própria residência. Uma comodidade que poucos endereços no Brasil podem oferecer.
             </p>
 
@@ -1434,7 +1430,7 @@
           </div>
 
           <!-- Right Interactive Mini-Gallery Overlay -->
-          <div class="aeronautica-gallery-controls flex lg:flex-col items-center justify-end gap-3.5 mt-8 lg:mt-0 lg:pr-6">
+          <div class="aeronautica-gallery-controls flex lg:flex-col items-center justify-center lg:justify-end gap-3.5 mt-8 lg:mt-0 lg:pr-6 w-full">
             <button class="hangar-thumb active relative overflow-hidden w-28 h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="0">
               <img src="portobello-hangar-1.webp" alt="Thumb Hangar 1" class="w-full h-full object-cover opacity-80" />
             </button>
@@ -1456,25 +1452,25 @@
         <div class="grid items-center gap-12 lg:grid-cols-[0.43fr_0.57fr] xl:gap-20">
           
           <!-- Left Column: Editorial & Level Switcher -->
-          <div class="implantacao-content-col flex flex-col justify-center">
+          <div class="implantacao-content-col flex flex-col justify-center items-center lg:items-start text-center lg:text-left w-full">
             <!-- Badge -->
-            <div class="implantacao-badge docs-badge flex items-center gap-2 w-fit">
+            <div class="implantacao-badge docs-badge flex items-center justify-center lg:justify-start gap-2 w-fit">
               <i data-lucide="map" class="w-3.5 h-3.5 text-[#3B6278]"></i>
               <span>Implantação</span>
             </div>
 
             <!-- Headline -->
-            <h2 class="implantacao-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-[#161820] mt-4 mb-6">
+            <h2 class="implantacao-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-[#161820] mt-4 mb-6 text-center lg:text-left mx-auto lg:mx-0">
               Cada metro quadrado,<br />no lugar certo.
             </h2>
 
             <!-- Body Copy -->
-            <p class="implantacao-body text-[15px] sm:text-[16px] leading-[1.6] text-[#3B6278]/90 font-medium mb-10 max-w-xl">
+            <p class="implantacao-body text-[15px] sm:text-[16px] leading-[1.6] text-[#3B6278]/90 font-medium mb-10 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
               A planta foi desenvolvida para maximizar a relação entre espaço interno, lazer ao ar livre e acesso à água. Do estacionamento coberto ao atracadouro — tudo integrado, tudo seu.
             </p>
 
             <!-- Interactive Toggle Controls -->
-            <div class="implantacao-controls flex flex-col sm:flex-row gap-4 max-w-xs">
+            <div class="implantacao-controls flex flex-col sm:flex-row gap-4 max-w-xs w-full justify-center lg:justify-start mx-auto lg:mx-0">
               <button class="implantacao-toggle-btn active flex-1 text-center py-4 px-6 rounded-xl border border-[#C8CDD0] bg-transparent text-[13px] font-bold tracking-wider uppercase text-[#161820] hover:bg-black/5 whitespace-nowrap" data-blueprint="general">
                 Planta Geral
               </button>
@@ -1528,34 +1524,34 @@
         <div class="grid items-start gap-12 lg:grid-cols-[0.45fr_0.55fr] xl:gap-20">
           
           <!-- Left Column: Editorial & Available Lot Tokens -->
-          <div class="dispo-selector-col flex flex-col justify-center">
+          <div class="dispo-selector-col flex flex-col justify-center items-center lg:items-start text-center lg:text-left w-full">
             <!-- Badge -->
-            <div class="dispo-badge inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-[#161820]/60 backdrop-blur-md text-[12px] font-extrabold uppercase tracking-wider text-[#C8CDD0] mb-6 select-none w-fit">
-              <i data-lucide="calendar" class="w-3.5 h-3.5 text-[#C8CDD0]"></i>
+            <div class="dispo-badge docs-badge flex items-center justify-center lg:justify-start gap-2 mb-6 text-[#C8CDD0] border border-white/10 bg-[#161820]/60 backdrop-blur-md select-none w-fit">
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-white"></i>
               <span>Disponibilidade</span>
             </div>
 
             <!-- Headline -->
-            <h2 class="dispo-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-white mt-4 mb-6">
+            <h2 class="dispo-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-white mt-4 mb-6 text-center lg:text-left mx-auto lg:mx-0">
               Cinco lotes.<br />Cinco oportunidades únicas.
             </h2>
 
             <!-- Body Copy -->
-            <p class="dispo-body text-[15px] sm:text-[16px] leading-[1.6] text-white/70 font-medium mb-10 max-w-xl">
+            <p class="dispo-body text-[15px] sm:text-[16px] leading-[1.6] text-white/70 font-medium mb-10 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
               Cada residência é vendida individualmente, com projeto, infraestrutura e hangar incluídos. Restam apenas 5 unidades.
             </p>
 
             <!-- Available Units Badges Group -->
-            <div class="dispo-unit-info mt-4">
-              <h4 class="text-[11px] font-bold text-white/40 uppercase tracking-widest mb-4">Unidades Exclusivas Disponíveis</h4>
-              <div class="flex flex-wrap gap-4 items-center">
+            <div class="dispo-unit-info mt-4 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
+              <h4 class="text-[11px] font-bold text-white/40 uppercase tracking-widest mb-4 text-center lg:text-left">Unidades Exclusivas Disponíveis</h4>
+              <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
                 <div class="dispo-unit-badge">23</div>
                 <div class="dispo-unit-badge">24</div>
                 <div class="dispo-unit-badge">25</div>
                 <div class="dispo-unit-badge">26</div>
                 <div class="dispo-unit-badge">27</div>
               </div>
-              <p class="text-[12px] text-white/50 font-medium mt-5 max-w-xs leading-relaxed">
+              <p class="text-[12px] text-white/50 font-medium mt-5 max-w-xs leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
                 Projetos arquitetônicos unificados de altíssimo padrão integrados a cada lote.
               </p>
             </div>
@@ -1619,7 +1615,7 @@
               </div>
 
               <!-- Footer with Pricing and Action -->
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 z-10 relative mt-2">
+              <div class="flex flex-col sm:flex-row sm:items-center items-center justify-between gap-6 z-10 relative mt-2 text-center sm:text-left">
                 <div class="flex flex-col">
                   <span class="text-[9px] font-bold text-white/30 uppercase tracking-wider">Investimento Unitário</span>
                   <span class="font-display text-2xl text-white font-normal mt-0.5">R$ 28.000.000</span>
@@ -1720,7 +1716,8 @@
       }
 
       // 3. GSAP Entrance Animations
-      const headlineEl = document.querySelector('.hero-headline');
+      function initAnimations() {
+        const headlineEl = document.querySelector('.hero-headline');
       if (headlineEl) {
         // Render block visible before split to prevent FOUC
         headlineEl.style.opacity = '1';
@@ -2565,6 +2562,14 @@
             });
           });
         }
+      }
+      }
+
+      // Execute initialization only after all custom fonts are fully loaded to prevent text split calculations running on fallback fonts
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(initAnimations);
+      } else {
+        window.addEventListener('load', initAnimations);
       }
     });
   </script>
