@@ -26,6 +26,7 @@
   <style>
     html {
       scroll-behavior: auto !important;
+      overflow-x: hidden !important;
     }
 
     :root {
@@ -39,6 +40,7 @@
     body {
       margin: 0;
       font-family: "Manrope", sans-serif;
+      overflow-x: hidden !important;
       background:
         radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.82), transparent 30%),
         radial-gradient(circle at 82% 10%, rgba(200, 205, 208, 0.34), transparent 34%),
@@ -320,7 +322,99 @@
       color: transparent;
     }
 
+    @media (min-width: 1024px) {
+      .hero-image-frame {
+        margin-right: 0 !important;
+        width: 100% !important;
+      }
+      .concept-image-frame {
+        margin-left: 0 !important;
+        width: 100% !important;
+      }
+    }
+    @media (min-width: 1510px) {
+      .hero-image-frame {
+        margin-right: calc((1510px - 100vw) / 2) !important;
+        width: calc(100% + (100vw - 1510px) / 2) !important;
+      }
+      .concept-image-frame {
+        margin-left: calc((1510px - 100vw) / 2) !important;
+        width: calc(100% + (100vw - 1510px) / 2) !important;
+      }
+    }
+
+    #mobile-menu-btn {
+      display: none;
+    }
+
     @media (max-width: 1023px) {
+      #mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 16px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 100;
+      }
+      #mobile-menu-btn span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #161820;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        transform-origin: center;
+      }
+      #mobile-menu-btn.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      #mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+      #mobile-menu-btn.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      #mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: calc(100vh - 100%);
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+      #mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      .hero-side > div,
+      .hero-headline,
+      .hero-body,
+      .concept-headline,
+      .concept-body,
+      .exclusividade-headline,
+      .exclusividade-body,
+      .lazer-headline,
+      .lazer-body,
+      .aeronautica-headline,
+      .aeronautica-body,
+      .implantacao-headline,
+      .implantacao-body,
+      .dispo-headline,
+      .dispo-body {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .concept-compass-badge {
+        display: none !important;
+      }
+
       .hero-side {
         min-height: auto !important;
       }
@@ -380,12 +474,32 @@
 
       .exclusividade-visual-bleed {
         margin-right: 0 !important;
-      /* Sliding accordion has custom responsive sizing rules in global CSS */;
       }
 
-      .concept-compass-badge {
-        right: -20px !important;
-        top: calc(7.5% - 20px) !important;
+      .hero-headline,
+      .concept-headline,
+      .exclusividade-headline,
+      .lazer-headline,
+      .aeronautica-headline,
+      .implantacao-headline,
+      .dispo-headline,
+      .contato-headline {
+        opacity: 1 !important;
+        transform: none !important;
+        text-align: center !important;
+      }
+
+      .hero-headline .line,
+      .concept-headline .line,
+      .exclusividade-headline .line,
+      .lazer-headline .line,
+      .aeronautica-headline .line,
+      .implantacao-headline .line,
+      .dispo-headline .line,
+      .contato-headline .line {
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
       }
     }
 
@@ -474,26 +588,24 @@
 
     @media (max-width: 1023px) {
       .lazer-tabs-wrapper {
-        flex-direction: row !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 8px;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        overflow-x: visible !important;
+        scroll-snap-type: none !important;
+        padding-bottom: 0 !important;
       }
       .lazer-tabs-wrapper::-webkit-scrollbar {
         display: none;
       }
       .lazer-tab-item {
         flex-shrink: 0;
-        width: 260px;
-        scroll-snap-align: start;
-        border: 1px solid rgba(200, 205, 208, 0.5);
-        background-color: rgba(200, 205, 208, 0.1);
+        width: 100% !important;
+        border: 1px solid rgba(200, 205, 208, 0.5) !important;
+        background-color: rgba(200, 205, 208, 0.1) !important;
       }
       .lazer-tab-item.active {
-        background-color: rgba(200, 205, 208, 0.4);
-        border-color: rgba(200, 205, 208, 0.9);
+        background-color: rgba(200, 205, 208, 0.45) !important;
+        border-color: rgba(200, 205, 208, 0.9) !important;
       }
     }
 
@@ -687,14 +799,14 @@
     }
 
     /* Lightbox Modal Styles */
-    #planta-lightbox {
+    #planta-lightbox, #hangar-lightbox {
       transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    #planta-lightbox.active {
+    #planta-lightbox.active, #hangar-lightbox.active {
       opacity: 1 !important;
       pointer-events: auto !important;
     }
-    #planta-lightbox.active #lightbox-content {
+    #planta-lightbox.active #lightbox-content, #hangar-lightbox.active #hangar-lightbox-content {
       transform: scale(1) !important;
     }
 
@@ -904,8 +1016,8 @@
 
   <!-- Semantic Header -->
   <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#F2F2F0]/80 border-b border-[#C8CDD0]">
-    <nav class="mx-auto flex max-w-[1510px] items-center justify-between gap-6 px-6 py-5 sm:px-8 lg:px-12 xl:px-14">
-      <a href="#" class="font-logo shrink-0 text-[24px] font-medium tracking-[0.12em] text-[#161820]">
+    <nav class="mx-auto flex max-w-[1510px] items-center justify-between gap-2 sm:gap-6 px-4 h-[68px] lg:h-auto py-0 lg:py-4 sm:px-8 lg:px-12 xl:px-14">
+      <a href="#" class="font-logo shrink-0 text-[20px] sm:text-[24px] font-medium tracking-[0.12em] text-[#161820]">
         Portobello
       </a>
       <div class="hidden items-center gap-8 text-[16px] font-medium text-[#3B6278] lg:flex">
@@ -915,23 +1027,47 @@
         <a class="transition hover:text-[#161820]" href="#implantacao">Implantação</a>
         <a class="transition hover:text-[#161820]" href="#disponibilidade">Disponibilidade</a>
       </div>
-      <div>
-        <a class="btn-header inline-flex h-11 items-center justify-center rounded-[9px] px-5 text-[16px] font-semibold shadow-[0_10px_20px_rgba(25,21,18,0.12)]"
+      <div class="hidden lg:block">
+        <a class="btn-header inline-flex h-9 sm:h-11 items-center justify-center rounded-[9px] px-3.5 sm:px-5 text-[13px] sm:text-[16px] font-semibold shadow-[0_10px_20px_rgba(25,21,18,0.12)] whitespace-nowrap"
           href="#contato">
           Falar com Consultor
         </a>
       </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="lg:hidden" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
+
+    <!-- Mobile Menu Drawer (Overlay) -->
+    <div id="mobile-menu" class="z-40 bg-[#F2F2F0]/95 backdrop-blur-lg flex flex-col pt-10 px-8 gap-8 lg:hidden border-t border-[#C8CDD0]">
+      <div class="flex flex-col gap-6 text-[20px] font-semibold text-[#3B6278] border-b border-[#C8CDD0] pb-8">
+        <a class="mobile-menu-link transition hover:text-[#161820]" href="#concept">O Empreendimento</a>
+        <a class="mobile-menu-link transition hover:text-[#161820]" href="#exclusividade">Exclusividade</a>
+        <a class="mobile-menu-link transition hover:text-[#161820]" href="#hangar">Hangar Privativo</a>
+        <a class="mobile-menu-link transition hover:text-[#161820]" href="#implantacao">Implantação</a>
+        <a class="mobile-menu-link transition hover:text-[#161820]" href="#disponibilidade">Disponibilidade</a>
+      </div>
+      <div class="flex flex-col">
+        <a class="btn-header mobile-menu-link inline-flex h-14 items-center justify-center rounded-xl text-[16px] font-bold shadow-lg w-full"
+          href="#contato" id="mobile-menu-cta-btn">
+          Falar com Consultor
+        </a>
+      </div>
+    </div>
   </header>
 
   <!-- Main Section containing only Hero -->
   <main>
     <section id="hero" class="pb-16 pt-8 lg:pb-20 border-b border-[#C8CDD0]">
-      <div class="mx-auto max-w-[1510px] pl-6 sm:pl-8 lg:pl-12 xl:pl-14">
+      <div class="mx-auto max-w-[1510px] px-6 sm:px-8 lg:pr-0 lg:pl-12 xl:pl-14">
         <div class="grid items-stretch gap-14 lg:grid-cols-[0.76fr_1.24fr] xl:gap-20">
 
           <!-- Hero Left Column: Editorial Content -->
-          <div class="hero-side flex min-h-0 lg:min-h-[735px] xl:min-h-[760px] py-12 lg:py-0 flex-col justify-center items-center lg:items-start text-center lg:text-left pr-6 sm:pr-8 lg:pr-0">
+          <div class="hero-side flex min-h-0 lg:min-h-[735px] xl:min-h-[760px] py-12 lg:py-0 flex-col justify-center items-center lg:items-start text-center lg:text-left pr-0 lg:pr-0">
             <div class="max-w-[700px] flex flex-col items-center lg:items-start">
 
               <!-- Superior Badge -->
@@ -1023,7 +1159,7 @@
 
           <!-- Hero Right Column: Image & Overlay Visuals -->
           <div
-            class="hero-side hero-visual-bleed relative flex min-h-0 lg:min-h-[735px] items-center xl:min-h-[760px] lg:mr-[calc((1510px-100vw)/2)] w-full">
+            class="hero-side hero-visual-bleed relative flex min-h-0 lg:min-h-[735px] items-center xl:min-h-[760px] w-full">
             <div
               class="hero-image-frame relative h-[735px] w-full overflow-visible rounded-tl-[1.35rem] rounded-bl-[1.35rem] rounded-tr-none rounded-br-none xl:h-[760px] shadow-[0_34px_90px_rgba(71,56,42,0.17)]">
 
@@ -1075,11 +1211,11 @@
 
     <!-- Concept Section: O Empreendimento -->
     <section id="concept" class="py-20 lg:py-28 border-b border-[#C8CDD0] overflow-hidden">
-      <div class="mx-auto max-w-[1510px] pr-6 sm:pr-8 lg:pr-12 xl:pr-14">
+      <div class="mx-auto max-w-[1510px] px-6 sm:px-8 lg:pl-0 lg:pr-12 xl:pr-14">
         <div class="grid items-stretch gap-14 lg:grid-cols-[1.24fr_0.76fr] xl:gap-20">
 
           <!-- Concept Left Column: Gallery & Sangria à esquerda -->
-          <div class="hero-side concept-visual-bleed relative flex min-h-0 lg:min-h-[735px] items-center xl:min-h-[760px] lg:ml-[calc((1510px-100vw)/2)] w-full">
+          <div class="hero-side concept-visual-bleed relative flex min-h-0 lg:min-h-[735px] items-center xl:min-h-[760px] w-full">
             <div class="concept-image-frame relative h-[735px] w-full overflow-visible rounded-tr-[1.35rem] rounded-br-[1.35rem] rounded-tl-none rounded-bl-none xl:h-[760px]">
 
               <!-- Main Image Container -->
@@ -1117,7 +1253,7 @@
           </div>
 
           <!-- Concept Right Column: Editorial Content -->
-          <div class="hero-side flex min-h-0 lg:min-h-[735px] py-12 lg:py-0 flex-col justify-center items-center lg:items-start text-center lg:text-left pl-6 sm:pr-8 lg:pl-0 xl:min-h-[760px] w-full">
+          <div class="hero-side flex min-h-0 lg:min-h-[735px] py-12 lg:py-0 flex-col justify-center items-center lg:items-start text-center lg:text-left pl-0 lg:pl-0 xl:min-h-[760px] w-full">
             <div class="max-w-[700px] flex flex-col items-center lg:items-start">
 
               <!-- Superior Badge -->
@@ -1421,23 +1557,27 @@
             </p>
 
             <!-- CTA Button -->
-            <div class="aeronautica-cta mt-8">
-              <a href="#contato" class="btn-shine bg-white hover:bg-[#F2F2F0] text-[#161820] relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[14px] font-bold tracking-wider uppercase z-30 transition shadow-lg transform hover:-translate-y-0.5">
+            <div class="aeronautica-cta mt-8 flex flex-col sm:flex-row items-center gap-4">
+              <a href="#contato" class="btn-shine bg-white hover:bg-[#F2F2F0] text-[#161820] relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[14px] font-bold tracking-wider uppercase z-30 transition shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto justify-center">
                 <span>Agendar Apresentação</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 text-[#161820]"></i>
               </a>
+              <button id="open-hangar-lightbox-btn" class="lg:hidden border border-white/20 bg-white/5 hover:bg-white/10 text-white relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[14px] font-bold tracking-wider uppercase z-30 transition shadow-lg w-full sm:w-auto justify-center">
+                <i data-lucide="eye" class="w-4 h-4 text-white"></i>
+                <span>Visualizar Fotos</span>
+              </button>
             </div>
           </div>
 
           <!-- Right Interactive Mini-Gallery Overlay -->
-          <div class="aeronautica-gallery-controls flex lg:flex-col items-center justify-center lg:justify-end gap-3.5 mt-8 lg:mt-0 lg:pr-6 w-full">
-            <button class="hangar-thumb active relative overflow-hidden w-28 h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="0">
+          <div class="aeronautica-gallery-controls flex lg:flex-col items-center justify-center lg:justify-end gap-2 sm:gap-3.5 mt-8 lg:mt-0 lg:pr-6 w-full">
+            <button class="hangar-thumb active relative overflow-hidden w-24 h-16 sm:w-28 sm:h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="0">
               <img src="portobello-hangar-1.webp" alt="Thumb Hangar 1" class="w-full h-full object-cover opacity-80" />
             </button>
-            <button class="hangar-thumb relative overflow-hidden w-28 h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="1">
+            <button class="hangar-thumb relative overflow-hidden w-24 h-16 sm:w-28 sm:h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="1">
               <img src="portobello-hangar-2.webp" alt="Thumb Hangar 2" class="w-full h-full object-cover opacity-50 hover:opacity-80" />
             </button>
-            <button class="hangar-thumb relative overflow-hidden w-28 h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="2">
+            <button class="hangar-thumb relative overflow-hidden w-24 h-16 sm:w-28 sm:h-18 lg:w-36 lg:h-24 rounded-lg border-2 bg-[#161820] shadow-md transition-all duration-300 transform hover:scale-105" data-hangar-index="2">
               <img src="portobello-hangar-3.webp" alt="Thumb Hangar 3" class="w-full h-full object-cover opacity-50 hover:opacity-80" />
             </button>
           </div>
@@ -1514,6 +1654,22 @@
         <div id="lightbox-content" class="relative max-w-[90vw] max-h-[90vh] scale-95 transition-transform duration-300 ease-out z-[105] overflow-auto rounded-lg">
           <img id="lightbox-img" src="portobello-planta-2.webp" alt="Planta Ampliada" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl mx-auto" />
         </div>
+      </div>
+
+      <!-- Lightbox Modal for Hangar Photos Zoom -->
+      <div id="hangar-lightbox" class="fixed inset-0 z-[150] flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-md">
+        <button id="hangar-lightbox-close" class="absolute top-6 right-6 text-white hover:text-[#C8CDD0] transition duration-200 focus:outline-none z-[160]">
+          <i data-lucide="x" class="h-8 w-8 stroke-[1.6]"></i>
+        </button>
+        <button id="hangar-lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-[#C8CDD0] transition duration-200 focus:outline-none z-[160] bg-white/10 hover:bg-white/20 p-3 rounded-full">
+          <i data-lucide="chevron-left" class="h-6 w-6 stroke-[2]"></i>
+        </button>
+        <div id="hangar-lightbox-content" class="relative max-w-[90vw] max-h-[85vh] scale-95 transition-transform duration-300 ease-out z-[155] overflow-auto rounded-lg">
+          <img id="hangar-lightbox-img" src="" alt="Foto do Hangar Ampliada" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl mx-auto" />
+        </div>
+        <button id="hangar-lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-[#C8CDD0] transition duration-200 focus:outline-none z-[160] bg-white/10 hover:bg-white/20 p-3 rounded-full">
+          <i data-lucide="chevron-right" class="h-6 w-6 stroke-[2]"></i>
+        </button>
       </div>
     </section>
 
@@ -1684,6 +1840,7 @@
   <!-- Animation and Lenis Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const isDesktop = window.innerWidth >= 1024;
       // 1. Initialize Lucide Icons
       if (window.lucide) {
         lucide.createIcons({
@@ -1715,41 +1872,70 @@
         requestAnimationFrame(raf);
       }
 
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function () {
+          mobileMenuBtn.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          
+          if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', function () {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024 && mobileMenu && mobileMenu.classList.contains('active')) {
+          mobileMenuBtn.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
       // 3. GSAP Entrance Animations
       function initAnimations() {
         const headlineEl = document.querySelector('.hero-headline');
-      if (headlineEl) {
-        // Render block visible before split to prevent FOUC
-        headlineEl.style.opacity = '1';
+        if (headlineEl) {
+          headlineEl.style.opacity = '1';
+          const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-        // Split text by lines
-        const split = new SplitType(headlineEl, { types: 'lines' });
+          tl.fromTo('.hero-badge',
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.8 },
+            0.2
+          );
 
-        // Add overflow hidden wrapping to each split line
-        if (split.lines) {
-          split.lines.forEach(line => {
-            line.style.overflow = 'hidden';
-            line.style.display = 'block';
-            line.style.verticalAlign = 'bottom';
-          });
-        }
-
-        // Create GSAP Timeline
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-        // 3.1 Badge slides in from bottom with fade — delay 0.2s
-        tl.fromTo('.hero-badge',
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          0.2
-        );
-
-        // 3.2 Headline lines translate up from 40px with stagger of 0.12s — duration 1s
-        tl.fromTo(split.lines,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, stagger: 0.12 },
-          0.3
-        );
+          if (isDesktop) {
+            const split = new SplitType(headlineEl, { types: 'lines' });
+            if (split.lines) {
+              split.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              tl.fromTo(split.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.12 },
+                0.3
+              );
+            }
+          } else {
+            gsap.set(headlineEl, { opacity: 1, y: 0 });
+          }
 
         // 3.3 Decorative horizontal line animate width 0 -> 4.1rem — delay after headline start
         tl.fromTo('.decorative-line',
@@ -1787,7 +1973,6 @@
         );
 
         // 3.8 Image: inset clipPath reveal from right to left — duration 1.2s, ease power4.inOut — delay 0.3s
-        const isDesktop = window.innerWidth >= 1024;
         const roundness = isDesktop ? 'round 1.35rem 0 0 1.35rem' : 'round 1.35rem';
         tl.fromTo('.image-wrapper-anim',
           { clipPath: `inset(0% 100% 0% 0% ${roundness})` },
@@ -1864,18 +2049,22 @@
           const conceptHeadline = document.querySelector('.concept-headline');
           if (conceptHeadline) {
             conceptHeadline.style.opacity = '1';
-            const conceptSplit = new SplitType(conceptHeadline, { types: 'lines' });
-            if (conceptSplit.lines) {
-              conceptSplit.lines.forEach(line => {
-                line.style.overflow = 'hidden';
-                line.style.display = 'block';
-                line.style.verticalAlign = 'bottom';
-              });
-              conceptTl.fromTo(conceptSplit.lines,
-                { y: 40, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-                '-=0.6'
-              );
+            if (isDesktop) {
+              const conceptSplit = new SplitType(conceptHeadline, { types: 'lines' });
+              if (conceptSplit.lines) {
+                conceptSplit.lines.forEach(line => {
+                  line.style.overflow = 'hidden';
+                  line.style.display = 'block';
+                  line.style.verticalAlign = 'bottom';
+                });
+                conceptTl.fromTo(conceptSplit.lines,
+                  { y: 40, opacity: 0 },
+                  { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                  '-=0.6'
+                );
+              }
+            } else {
+              gsap.set(conceptHeadline, { opacity: 1, y: 0 });
             }
           }
 
@@ -1906,7 +2095,6 @@
           );
 
           // 4.5 Mirror image reveal (slide left-to-right)
-          const isDesktop = window.innerWidth >= 1024;
           const conceptRoundness = isDesktop ? 'round 0 1.35rem 1.35rem 0' : 'round 1.35rem';
           conceptTl.fromTo('.concept-main-image-wrapper',
             { clipPath: `inset(0% 100% 0% 0% ${conceptRoundness})` },
@@ -1955,7 +2143,6 @@
       // 5. GSAP Exclusividade Section Animations (ScrollTriggered)
       const exclusividadeSection = document.querySelector('#exclusividade');
       if (exclusividadeSection && window.gsap && window.ScrollTrigger) {
-        const isDesktop = window.innerWidth >= 1024;
         const exclusividadeTl = gsap.timeline({
           scrollTrigger: {
             trigger: exclusividadeSection,
@@ -1974,18 +2161,22 @@
         const exclusividadeHeadline = document.querySelector('.exclusividade-headline');
         if (exclusividadeHeadline) {
           exclusividadeHeadline.style.opacity = '1';
-          const exclusividadeSplit = new SplitType(exclusividadeHeadline, { types: 'lines' });
-          if (exclusividadeSplit.lines) {
-            exclusividadeSplit.lines.forEach(line => {
-              line.style.overflow = 'hidden';
-              line.style.display = 'block';
-              line.style.verticalAlign = 'bottom';
-            });
-            exclusividadeTl.fromTo(exclusividadeSplit.lines,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-              '-=0.6'
-            );
+          if (isDesktop) {
+            const exclusividadeSplit = new SplitType(exclusividadeHeadline, { types: 'lines' });
+            if (exclusividadeSplit.lines) {
+              exclusividadeSplit.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              exclusividadeTl.fromTo(exclusividadeSplit.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                '-=0.6'
+              );
+            }
+          } else {
+            gsap.set(exclusividadeHeadline, { opacity: 1, y: 0 });
           }
         }
 
@@ -2032,18 +2223,22 @@
         const lazerHeadline = document.querySelector('.lazer-headline');
         if (lazerHeadline) {
           lazerHeadline.style.opacity = '1';
-          const lazerSplit = new SplitType(lazerHeadline, { types: 'lines' });
-          if (lazerSplit.lines) {
-            lazerSplit.lines.forEach(line => {
-              line.style.overflow = 'hidden';
-              line.style.display = 'block';
-              line.style.verticalAlign = 'bottom';
-            });
-            lazerTl.fromTo(lazerSplit.lines,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-              '-=0.6'
-            );
+          if (isDesktop) {
+            const lazerSplit = new SplitType(lazerHeadline, { types: 'lines' });
+            if (lazerSplit.lines) {
+              lazerSplit.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              lazerTl.fromTo(lazerSplit.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                '-=0.6'
+              );
+            }
+          } else {
+            gsap.set(lazerHeadline, { opacity: 1, y: 0 });
           }
         }
 
@@ -2148,18 +2343,22 @@
         const hangarHeadline = document.querySelector('.aeronautica-headline');
         if (hangarHeadline) {
           hangarHeadline.style.opacity = '1';
-          const hangarSplit = new SplitType(hangarHeadline, { types: 'lines' });
-          if (hangarSplit.lines) {
-            hangarSplit.lines.forEach(line => {
-              line.style.overflow = 'hidden';
-              line.style.display = 'block';
-              line.style.verticalAlign = 'bottom';
-            });
-            hangarTl.fromTo(hangarSplit.lines,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-              '-=0.6'
-            );
+          if (isDesktop) {
+            const hangarSplit = new SplitType(hangarHeadline, { types: 'lines' });
+            if (hangarSplit.lines) {
+              hangarSplit.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              hangarTl.fromTo(hangarSplit.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                '-=0.6'
+              );
+            }
+          } else {
+            gsap.set(hangarHeadline, { opacity: 1, y: 0 });
           }
         }
 
@@ -2249,18 +2448,22 @@
         const implantacaoHeadline = document.querySelector('.implantacao-headline');
         if (implantacaoHeadline) {
           implantacaoHeadline.style.opacity = '1';
-          const implantacaoSplit = new SplitType(implantacaoHeadline, { types: 'lines' });
-          if (implantacaoSplit.lines) {
-            implantacaoSplit.lines.forEach(line => {
-              line.style.overflow = 'hidden';
-              line.style.display = 'block';
-              line.style.verticalAlign = 'bottom';
-            });
-            implantacaoTl.fromTo(implantacaoSplit.lines,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-              '-=0.6'
-            );
+          if (isDesktop) {
+            const implantacaoSplit = new SplitType(implantacaoHeadline, { types: 'lines' });
+            if (implantacaoSplit.lines) {
+              implantacaoSplit.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              implantacaoTl.fromTo(implantacaoSplit.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                '-=0.6'
+              );
+            }
+          } else {
+            gsap.set(implantacaoHeadline, { opacity: 1, y: 0 });
           }
         }
 
@@ -2360,6 +2563,88 @@
         });
       }
 
+      // 9.9 Lightbox zoom for active hangar image
+      const openHangarLightboxBtn = document.getElementById('open-hangar-lightbox-btn');
+      const hangarLightbox = document.getElementById('hangar-lightbox');
+      const hangarLightboxImg = document.getElementById('hangar-lightbox-img');
+      const closeHangarLightboxBtn = document.getElementById('hangar-lightbox-close');
+      const hangarLightboxPrev = document.getElementById('hangar-lightbox-prev');
+      const hangarLightboxNext = document.getElementById('hangar-lightbox-next');
+
+      let currentHangarIndex = 0;
+      const hangarImagesSources = [
+        "portobello-hangar-1.webp",
+        "portobello-hangar-2.webp",
+        "portobello-hangar-3.webp"
+      ];
+
+      if (openHangarLightboxBtn && hangarLightbox && hangarLightboxImg) {
+        const updateLightboxImage = (index) => {
+          currentHangarIndex = (index + hangarImagesSources.length) % hangarImagesSources.length;
+          hangarLightboxImg.src = hangarImagesSources[currentHangarIndex];
+          hangarLightboxImg.alt = `Foto do Hangar ${currentHangarIndex + 1}`;
+          
+          const targetThumb = document.querySelector(`.hangar-thumb[data-hangar-index="${currentHangarIndex}"]`);
+          if (targetThumb) {
+            targetThumb.click();
+          }
+        };
+
+        openHangarLightboxBtn.addEventListener('click', () => {
+          const activeThumb = document.querySelector('.hangar-thumb.active');
+          if (activeThumb) {
+            const index = parseInt(activeThumb.getAttribute('data-hangar-index'), 10);
+            updateLightboxImage(index);
+          } else {
+            updateLightboxImage(0);
+          }
+          
+          hangarLightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          if (window.lucide) {
+            lucide.createIcons();
+          }
+        });
+
+        const closeHangarLightbox = () => {
+          hangarLightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        if (closeHangarLightboxBtn) {
+          closeHangarLightboxBtn.addEventListener('click', closeHangarLightbox);
+        }
+
+        if (hangarLightboxPrev) {
+          hangarLightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            updateLightboxImage(currentHangarIndex - 1);
+          });
+        }
+
+        if (hangarLightboxNext) {
+          hangarLightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            updateLightboxImage(currentHangarIndex + 1);
+          });
+        }
+
+        hangarLightbox.addEventListener('click', (e) => {
+          const content = document.getElementById('hangar-lightbox-content');
+          if (content && !content.contains(e.target)) {
+            closeHangarLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (hangarLightbox.classList.contains('active')) {
+            if (e.key === 'Escape') closeHangarLightbox();
+            if (e.key === 'ArrowLeft') updateLightboxImage(currentHangarIndex - 1);
+            if (e.key === 'ArrowRight') updateLightboxImage(currentHangarIndex + 1);
+          }
+        });
+      }
+
       // 10. GSAP Disponibilidade Section Animations (ScrollTriggered)
       const dispoSection = document.querySelector('#disponibilidade');
       if (dispoSection && window.gsap && window.ScrollTrigger) {
@@ -2381,18 +2666,22 @@
         const dispoHeadline = document.querySelector('.dispo-headline');
         if (dispoHeadline) {
           dispoHeadline.style.opacity = '1';
-          const dispoSplit = new SplitType(dispoHeadline, { types: 'lines' });
-          if (dispoSplit.lines) {
-            dispoSplit.lines.forEach(line => {
-              line.style.overflow = 'hidden';
-              line.style.display = 'block';
-              line.style.verticalAlign = 'bottom';
-            });
-            dispoTl.fromTo(dispoSplit.lines,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-              '-=0.6'
-            );
+          if (isDesktop) {
+            const dispoSplit = new SplitType(dispoHeadline, { types: 'lines' });
+            if (dispoSplit.lines) {
+              dispoSplit.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              dispoTl.fromTo(dispoSplit.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                '-=0.6'
+              );
+            }
+          } else {
+            gsap.set(dispoHeadline, { opacity: 1, y: 0 });
           }
         }
 
@@ -2451,18 +2740,22 @@
         const contatoHeadline = document.querySelector('.contato-headline');
         if (contatoHeadline) {
           contatoHeadline.style.opacity = '1';
-          const contatoSplit = new SplitType(contatoHeadline, { types: 'lines' });
-          if (contatoSplit.lines) {
-            contatoSplit.lines.forEach(line => {
-              line.style.overflow = 'hidden';
-              line.style.display = 'block';
-              line.style.verticalAlign = 'bottom';
-            });
-            contatoTl.fromTo(contatoSplit.lines,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
-              '-=0.6'
-            );
+          if (isDesktop) {
+            const contatoSplit = new SplitType(contatoHeadline, { types: 'lines' });
+            if (contatoSplit.lines) {
+              contatoSplit.lines.forEach(line => {
+                line.style.overflow = 'hidden';
+                line.style.display = 'block';
+                line.style.verticalAlign = 'bottom';
+              });
+              contatoTl.fromTo(contatoSplit.lines,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: 'power3.out' },
+                '-=0.6'
+              );
+            }
+          } else {
+            gsap.set(contatoHeadline, { opacity: 1, y: 0 });
           }
         }
 
