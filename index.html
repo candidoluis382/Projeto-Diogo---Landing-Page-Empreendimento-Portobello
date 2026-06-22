@@ -44,7 +44,7 @@
       background:
         radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.72), transparent 30%),
         radial-gradient(circle at 82% 10%, rgba(180, 210, 190, 0.30), transparent 34%),
-        #EFF5F0;
+        #E5ECE7;
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
@@ -1687,25 +1687,17 @@
 
             <!-- Headline -->
             <h2 class="dispo-headline font-display text-4xl sm:text-5xl lg:text-[50px] leading-[1.1] font-normal tracking-tight text-white mt-4 mb-6 text-center lg:text-left mx-auto lg:mx-0">
-              Cinco lotes.<br />Cinco oportunidades únicas.
+              Lotes exclusivos.<br />Oportunidades únicas.
             </h2>
 
             <!-- Body Copy -->
             <p class="dispo-body text-[15px] sm:text-[16px] leading-[1.6] text-white/70 font-medium mb-10 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-              Cada residência é vendida individualmente, com projeto, infraestrutura e hangar incluídos. Restam apenas 5 unidades.
+              Cada residência é vendida de forma exclusiva, com projeto de altíssimo luxo, infraestrutura completa e hangar aeronáutico privativo incluídos.
             </p>
 
-            <!-- Available Units Badges Group -->
-            <div class="dispo-unit-info mt-4 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
-              <h4 class="text-[11px] font-bold text-white/40 uppercase tracking-widest mb-4 text-center lg:text-left">Unidades Exclusivas Disponíveis</h4>
-              <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
-                <div class="dispo-unit-badge">23</div>
-                <div class="dispo-unit-badge">24</div>
-                <div class="dispo-unit-badge">25</div>
-                <div class="dispo-unit-badge">26</div>
-                <div class="dispo-unit-badge">27</div>
-              </div>
-              <p class="text-[12px] text-white/50 font-medium mt-5 max-w-xs leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+            <!-- Specification Copy -->
+            <div class="mt-4 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
+              <p class="text-[14px] text-white/50 font-medium max-w-sm leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
                 Projetos arquitetônicos unificados de altíssimo padrão integrados a cada lote.
               </p>
             </div>
@@ -2704,12 +2696,7 @@
           '-=0.8'
         );
 
-        // 10.6 Available unit badges stagger reveal
-        dispoTl.fromTo('.dispo-unit-badge',
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: 'back.out(1.2)' },
-          '-=0.6'
-        );
+
 
         // 10.7 Run specs fill inside the panel when it reveals
         dispoTl.fromTo('#dispo-bar-const', { width: '0%' }, { width: '36%', duration: 1.2, ease: 'power3.out' }, '-=0.6');
